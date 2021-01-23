@@ -7,7 +7,6 @@ import (
 	"path/filepath"
 )
 
-
 const (
 	// sniff Length, use for detect file mime type
 	MimeSniffLen = 512
@@ -16,10 +15,10 @@ const (
 var (
 	// refer net/http package
 	imageMimeTypes = map[string]string{
-		"bmp": "image/bmp",
-		"gif": "image/gif",
-		"ief": "image/ief",
-		"jpg": "image/jpeg",
+		"bmp":  "image/bmp",
+		"gif":  "image/gif",
+		"ief":  "image/ief",
+		"jpg":  "image/jpeg",
 		"jpeg": "image/jpeg",
 		"png":  "image/png",
 		"svg":  "image/svg+xml",

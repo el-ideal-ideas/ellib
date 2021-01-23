@@ -2,7 +2,6 @@ package arr
 
 import "testing"
 
-
 func TestIsIn(t *testing.T) {
 	if !StrIn([]string{"も", "ず", "く"}, "も") {
 		t.Errorf("Invalid result")
@@ -88,5 +87,10 @@ func TestIsIn(t *testing.T) {
 	if Float32In([]float32{1.0, 2.0, 3.0}, 0.0) {
 		t.Errorf("Invalid result")
 	}
-
+	if !Float64In([]float64{1.0, 2.0, 3.0}, 1.0) {
+		t.Errorf("Invalid result")
+	}
+	if Float64In([]float64{1.0, 2.0, 3.0}, 0.0) {
+		t.Errorf("Invalid result")
+	}
 }

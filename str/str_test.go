@@ -4,20 +4,19 @@ import (
 	"testing"
 )
 
-
-func TestIsAlNum(t *testing.T){
+func TestIsAlNum(t *testing.T) {
 	testData := map[string]bool{
 		// data, want
-		"0123456789": true,
-		"asodadnfas": true,
-		"fds0aenw0ew": true,
-		":a-daf9e0qfn": false,
+		"0123456789":     true,
+		"asodadnfas":     true,
+		"fds0aenw0ew":    true,
+		":a-daf9e0qfn":   false,
 		":a-daf9e0\nqfn": false,
-		"!#$%&'()0=~": false,
+		"!#$%&'()0=~":    false,
 		"Ω≈ç∫∂¨¨å…∂∑ei´˜ØÅÎÅÂ∏": false,
-		"天上天下唯我独尊": false,
-		"mendakoめんだこ": false,
-		"": false,
+		"天上天下唯我独尊":              false,
+		"mendakoめんだこ":           false,
+		"":                      false,
 	}
 	for data, want := range testData {
 		got := IsAlNum(data)
@@ -27,19 +26,19 @@ func TestIsAlNum(t *testing.T){
 	}
 }
 
-func TestIsAlpha(t *testing.T){
+func TestIsAlpha(t *testing.T) {
 	testData := map[string]bool{
 		// data, want
-		"0123456789": false,
-		"asodadnfas": true,
-		"fds0aenw0ew": false,
-		":a-daf9e0qfn": false,
+		"0123456789":     false,
+		"asodadnfas":     true,
+		"fds0aenw0ew":    false,
+		":a-daf9e0qfn":   false,
 		":a-daf9e0\nqfn": false,
-		"!#$%&'()0=~": false,
+		"!#$%&'()0=~":    false,
 		"Ω≈ç∫∂¨¨å…∂∑ei´˜ØÅÎÅÂ∏": false,
-		"天上天下唯我独尊": false,
-		"mendakoめんだこ": false,
-		"": false,
+		"天上天下唯我独尊":              false,
+		"mendakoめんだこ":           false,
+		"":                      false,
 	}
 	for data, want := range testData {
 		got := IsAlpha(data)
@@ -49,19 +48,19 @@ func TestIsAlpha(t *testing.T){
 	}
 }
 
-func TestIsDigit(t *testing.T){
+func TestIsDigit(t *testing.T) {
 	testData := map[string]bool{
 		// data, want
-		"0123456789": true,
-		"asodadnfas": false,
-		"fds0aenw0ew": false,
-		":a-daf9e0qfn": false,
+		"0123456789":     true,
+		"asodadnfas":     false,
+		"fds0aenw0ew":    false,
+		":a-daf9e0qfn":   false,
 		":a-daf9e0\nqfn": false,
-		"!#$%&'()0=~": false,
+		"!#$%&'()0=~":    false,
 		"Ω≈ç∫∂¨¨å…∂∑ei´˜ØÅÎÅÂ∏": false,
-		"天上天下唯我独尊": false,
-		"mendakoめんだこ": false,
-		"": false,
+		"天上天下唯我独尊":              false,
+		"mendakoめんだこ":           false,
+		"":                      false,
 	}
 	for data, want := range testData {
 		got := IsDigit(data)
@@ -71,19 +70,19 @@ func TestIsDigit(t *testing.T){
 	}
 }
 
-func TestIsASCII(t *testing.T){
+func TestIsASCII(t *testing.T) {
 	testData := map[string]bool{
 		// data, want
-		"0123456789": true,
-		"asodadnfas": true,
-		"fds0aenw0ew": true,
-		":a-daf9e0qfn": true,
+		"0123456789":     true,
+		"asodadnfas":     true,
+		"fds0aenw0ew":    true,
+		":a-daf9e0qfn":   true,
 		":a-daf9e0\nqfn": true,
-		"!#$%&'()0=~": true,
+		"!#$%&'()0=~":    true,
 		"Ω≈ç∫∂¨¨å…∂∑ei´˜ØÅÎÅÂ∏": false,
-		"天上天下唯我独尊": false,
-		"mendakoめんだこ": false,
-		"": true,
+		"天上天下唯我独尊":              false,
+		"mendakoめんだこ":           false,
+		"":                      true,
 	}
 	for data, want := range testData {
 		got := IsASCII(data)
@@ -96,22 +95,22 @@ func TestIsASCII(t *testing.T){
 func TestIsUpper(t *testing.T) {
 	testData := map[string]bool{
 		// data, want
-		"0123456789": false,
-		"asodadnfas": false,
-		"fds0aenw0ew": false,
-		":a-daf9e0qfn": false,
+		"0123456789":     false,
+		"asodadnfas":     false,
+		"fds0aenw0ew":    false,
+		":a-daf9e0qfn":   false,
 		":a-daf9e0\nqfn": false,
-		"!#$%&'()0=~": false,
+		"!#$%&'()0=~":    false,
 		"Ω≈ç∫∂¨¨å…∂∑ei´˜ØÅÎÅÂ∏": false,
-		"天上天下唯我独尊": false,
-		"mendakoめんだこ": false,
-		"": false,
-		"sdfAIDF": false,
-		"AFSDMOI": true,
-		"FNSO-DFS.DFS": true,
-		"FDもずくFSO": true,
-		"sdffもずく": false,
-		"fasdf-sdfas.e": false,
+		"天上天下唯我独尊":              false,
+		"mendakoめんだこ":           false,
+		"":                      false,
+		"sdfAIDF":               false,
+		"AFSDMOI":               true,
+		"FNSO-DFS.DFS":          true,
+		"FDもずくFSO":              true,
+		"sdffもずく":               false,
+		"fasdf-sdfas.e":         false,
 	}
 	for data, want := range testData {
 		got := IsUpper(data)
@@ -121,25 +120,25 @@ func TestIsUpper(t *testing.T) {
 	}
 }
 
-func TestIsLower(t *testing.T){
+func TestIsLower(t *testing.T) {
 	testData := map[string]bool{
 		// data, want
-		"0123456789": false,
-		"asodadnfas": true,
-		"fds0aenw0ew": true,
-		":a-daf9e0qfn": true,
+		"0123456789":     false,
+		"asodadnfas":     true,
+		"fds0aenw0ew":    true,
+		":a-daf9e0qfn":   true,
 		":a-daf9e0\nqfn": true,
-		"!#$%&'()0=~": false,
+		"!#$%&'()0=~":    false,
 		"Ω≈ç∫∂¨¨å…∂∑ei´˜ØÅÎÅÂ∏": true,
-		"天上天下唯我独尊": false,
-		"mendakoめんだこ": true,
-		"": false,
-		"sdfAIDF": false,
-		"AFSDMOI": false,
-		"FNSO-DFS.DFS": false,
-		"FDもずくFSO": false,
-		"sdffもずく": true,
-		"fasdf-sdfas.e": true,
+		"天上天下唯我独尊":              false,
+		"mendakoめんだこ":           true,
+		"":                      false,
+		"sdfAIDF":               false,
+		"AFSDMOI":               false,
+		"FNSO-DFS.DFS":          false,
+		"FDもずくFSO":              false,
+		"sdffもずく":               true,
+		"fasdf-sdfas.e":         true,
 	}
 	for data, want := range testData {
 		got := IsLower(data)
@@ -155,7 +154,7 @@ func TestLen(t *testing.T) {
 		"もじゅく": 4,
 		"∂≠å∂ƒ´˜ƒåπ∂ƒå´–ƒå∂": 18,
 		"もっちもっちにゃんにゃん!mochi": 18,
-		"天上天下唯我独尊": 8,
+		"天上天下唯我独尊":           8,
 	}
 	for data, want := range testData {
 		got := Len(data)

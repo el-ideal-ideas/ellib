@@ -33,7 +33,7 @@ type SyncStructController struct {
 	err error
 	// listener
 	listener map[string]func(name string, old gjson.Result, new gjson.Result) error
-	oldData map[string]gjson.Result
+	oldData  map[string]gjson.Result
 }
 
 // Get filename
@@ -94,7 +94,7 @@ func (s *SyncStructController) Reload() error {
 		// check changes for listener
 		res := gjson.ParseBytes(contents)
 		for name := range s.listener {
-			if value, ok := s.oldData[name]; ok && value.String() != res.Get(name).String(){
+			if value, ok := s.oldData[name]; ok && value.String() != res.Get(name).String() {
 				err := s.listener[name](name, value, res.Get(name))
 				if err != nil {
 					s.err = err
@@ -136,7 +136,7 @@ func (s *SyncStructController) Exit(wait bool) {
 // 	 Age int `json:"age"`
 // }
 // If you want to add a event listener to `Name` field, the name parameter must be "name"
-func (s *SyncStructController) AddEventListener(name string, f func(string, gjson.Result, gjson.Result) error){
+func (s *SyncStructController) AddEventListener(name string, f func(string, gjson.Result, gjson.Result) error) {
 	s.listener[name] = f
 }
 
@@ -148,8 +148,8 @@ func SyncStructWithJsonFile(structData interface{}, filename string, interval ti
 		structData: structData,
 		interval:   interval,
 		exitFlag:   false,
-		listener: make(map[string]func(string, gjson.Result, gjson.Result)error),
-		oldData: make(map[string]gjson.Result),
+		listener:   make(map[string]func(string, gjson.Result, gjson.Result) error),
+		oldData:    make(map[string]gjson.Result),
 	}
 	// Create file if not exist.
 	file, err := os.OpenFile(filename, os.O_CREATE|os.O_RDONLY, 0644)

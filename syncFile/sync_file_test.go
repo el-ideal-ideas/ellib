@@ -8,7 +8,6 @@ import (
 	"time"
 )
 
-
 func TestSyncFile(t *testing.T) {
 	filename := "./test.txt"
 	_ = os.Remove(filename)
@@ -57,7 +56,7 @@ func TestSyncFile(t *testing.T) {
 	if syncFile.GetString() != "もっちもっちにゃんにゃん" {
 		t.Errorf("GetString() must be \"もっちもっちにゃんにゃん\".")
 	}
-	if data, err := ioutil.ReadFile(filename); err != nil{
+	if data, err := ioutil.ReadFile(filename); err != nil {
 		t.Errorf("Expected nil, got %v", err)
 	} else if !bytes.Equal(data, syncFile.Contents()) {
 		t.Errorf("Invalid contents")

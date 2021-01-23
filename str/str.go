@@ -3,10 +3,10 @@
 package str
 
 import (
+	"strings"
 	"unicode"
 	"unicode/utf8"
 )
-
 
 // -------- these constants are from python's string module --------
 
@@ -29,7 +29,6 @@ const OctDigits = "01234567"
 const PUNCTUATION = `!"#$%&'()*+,-./:;<=>?@[\]^_{|}~` + "`"
 const Printable = Digits + AsciiLetters + PUNCTUATION + Whitespace
 
-
 // -------- utility methods like python's str class --------
 
 // Return True if the string is an alphabetic string, False otherwise.
@@ -40,7 +39,7 @@ func IsAlNum(s string) bool {
 		return false
 	}
 	for _, r := range s {
-		if (r < 'a' || r > 'z') && (r < 'A' || r > 'Z') && (r < '0' || r > '9'){
+		if (r < 'a' || r > 'z') && (r < 'A' || r > 'Z') && (r < '0' || r > '9') {
 			return false
 		}
 	}
@@ -125,7 +124,6 @@ func IsLower(s string) bool {
 	return flag
 }
 
-
 // -------- other utilities for strings --------
 
 // Reverse string
@@ -151,6 +149,7 @@ func ReverseASCII(s string) string {
 }
 
 // Replace strings (faster than strings.Replace)
+// If n < 0, there is no limit on the number of replacements.
 func Replace(s, old, new string, n int) string {
 	return UnsafeToString(UnsafeReplaceToBytes(s, old, new, n))
 }
@@ -183,7 +182,45 @@ func Copy(src string) string {
 	return UnsafeToString(buf)
 }
 
-// Get a part of string.
+// Get a part of string (supports rune).
 func SubString(s string, start, length int) string {
 	return RuneSubString(s, start, length)
+}
+
+// Split string by multiple separators. will clear empty string node.
+func SplitMulti(s string, sep ...string) (ss []string) {
+	if len(sep) == 0 {
+		ss = append(ss, s)
+		return
+	}
+	if s = strings.TrimSpace(s); s == "" {
+		return
+	}
+	if len(sep) == 1 {
+		for _, val := range strings.Split(s, sep[0]) {
+			if val = strings.TrimSpace(val); val != "" {
+				ss = append(ss, val)
+			}
+		}
+	} else {
+		for i := 1; i < len(sep); i++ {
+			s = Replace(s, sep[i], sep[0], -1)
+		}
+		return SplitMulti(s, sep[0])
+	}
+	return
+}
+
+// Replaces replace multi strings
+//
+// 	pairs: {old1: new1, old2: new2, ...}
+//
+// Can also use:
+// 	strings.NewReplacer("old1", "new1", "old2", "new2").Replace(str)
+func Replaces(str string, pairs map[string]string) string {
+	ss := make([]string, len(pairs)*2)
+	for old, newVal := range pairs {
+		ss = append(ss, old, newVal)
+	}
+	return strings.NewReplacer(ss...).Replace(str)
 }

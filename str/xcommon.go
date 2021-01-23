@@ -2,7 +2,6 @@
 
 package str
 
-
 const bufferMaxInitGrowSize = 2048
 
 // Lazy initialize a buffer.

@@ -12,7 +12,6 @@ import (
 	"time"
 )
 
-
 // A file object that will be synchronized with the target file.
 // If you change the file directly, SyncFile will reload contents from the file.
 // If you change the contents in SyncFile, changes will be applied to the file.
@@ -130,7 +129,7 @@ func (s *SyncFile) Reload() error {
 	if info, err := os.Stat(s.filename); err != nil {
 		s.err = err
 		return err
-	} else if contents, err := ioutil.ReadFile(s.filename); err != nil{
+	} else if contents, err := ioutil.ReadFile(s.filename); err != nil {
 		s.err = err
 		return err
 	} else if contents != nil {
@@ -167,10 +166,10 @@ func (s *SyncFile) Exit(wait bool) {
 // Create a SyncFile object.
 func NewSyncFile(filename string, interval time.Duration) (*SyncFile, error) {
 	syncFile := &SyncFile{
-		filename: filename,
-		interval: interval,
-		control:  make(chan command, 32),
-		reloadFunc: func(i *SyncFile){},
+		filename:   filename,
+		interval:   interval,
+		control:    make(chan command, 32),
+		reloadFunc: func(i *SyncFile) {},
 	}
 	// Open file
 	file, err := os.OpenFile(filename, os.O_CREATE|os.O_RDONLY, 0644)

@@ -10,8 +10,8 @@ import (
 
 type Tmp struct {
 	Name string `json:"name"`
-	Age int `json:"age"`
-	List []int `json:"list"`
+	Age  int    `json:"age"`
+	List []int  `json:"list"`
 }
 
 func TestSyncStruct(t *testing.T) {
@@ -29,7 +29,7 @@ func TestSyncStruct(t *testing.T) {
 }`
 	structData := Tmp{
 		Name: "もずく",
-		Age: 18,
+		Age:  18,
 		List: []int{1, 2, 3, 4},
 	}
 	controller, err := SyncStructWithJsonFile(&structData, filename, time.Millisecond)
@@ -38,7 +38,7 @@ func TestSyncStruct(t *testing.T) {
 	}
 	if data, err := ioutil.ReadFile(filename); err != nil {
 		t.Errorf("Can't access to the file. Error: %v", err)
-	} else if string(data) != json{
+	} else if string(data) != json {
 		t.Errorf("Invalid file contents.")
 	}
 	if structData.Name != "もずく" {
@@ -50,7 +50,7 @@ func TestSyncStruct(t *testing.T) {
 	}
 	if data, err := ioutil.ReadFile(filename); err != nil {
 		t.Errorf("Can't access to the file. Error: %v", err)
-	} else if string(data) != strings.ReplaceAll(json, "18", "19"){
+	} else if string(data) != strings.ReplaceAll(json, "18", "19") {
 		t.Errorf("Invalid file contents.")
 	}
 	if err := ioutil.WriteFile(filename, []byte(strings.ReplaceAll(json, "もずく", "もじゅく")), 0644); err != nil {

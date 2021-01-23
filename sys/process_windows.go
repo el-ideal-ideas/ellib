@@ -1,13 +1,12 @@
-package process
+package sys
 
 import (
 	"golang.org/x/sys/windows"
 )
 
-
 const (
 	processQueryLimitedInformation = 0x1000
-	stillActive = 259
+	stillActive                    = 259
 )
 
 // Exists check process running by given pid

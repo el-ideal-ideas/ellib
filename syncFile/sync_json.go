@@ -10,7 +10,6 @@ import (
 	"time"
 )
 
-
 // A json dictionary file object that will be synchronized with the target file.
 // If you change the file directly, SyncJSON will reload contents from the file.
 // If you change the contents in SyncJSON, changes will be applied to the file.
@@ -107,7 +106,7 @@ func NewSyncJSON(filename string, interval time.Duration) (*SyncJSON, error) {
 	}
 	syncJSON.modTime = info.ModTime()
 	// Reload function
-	syncJSON.reloadFunc = func(i *SyncFile){
+	syncJSON.reloadFunc = func(i *SyncFile) {
 		syncJSON.Json = gjson.ParseBytes(syncJSON.contents)
 	}
 	// Start loop-goroutine

@@ -7,7 +7,6 @@
 
 package arr
 
-
 // Reverse slice
 func Reverse(s []interface{}) {
 	length := len(s)

@@ -2,7 +2,6 @@ package arr
 
 import "testing"
 
-
 func TestReverse(t *testing.T) {
 	d1 := []string{"も", "ず", "く"}
 	StrReverse(d1)
@@ -77,6 +76,11 @@ func TestReverse(t *testing.T) {
 	d15 := []float64{1.0, 2.0, 3.0}
 	Float64Reverse(d15)
 	if !Float64IsSame(d15, []float64{3.0, 2.0, 1.0}) {
+		t.Errorf("Invalid result")
+	}
+	d16 := []interface{}{1.0, 2.0, 3.0}
+	Reverse(d16)
+	if !Float64IsSame(ToFloat64s(d16), []float64{3.0, 2.0, 1.0}) {
 		t.Errorf("Invalid result")
 	}
 }

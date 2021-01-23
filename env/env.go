@@ -5,7 +5,6 @@ import (
 	"runtime"
 )
 
-
 // If running on windows, return true.
 func IsWin() bool {
 	return runtime.GOOS == "windows"

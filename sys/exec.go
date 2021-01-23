@@ -6,7 +6,6 @@ import (
 	"strings"
 )
 
-
 // QuickExec quick exec an simple command line
 // Usage:
 //	QuickExec("git status")

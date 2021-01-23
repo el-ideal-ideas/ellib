@@ -7,7 +7,6 @@ import (
 	"unicode/utf8"
 )
 
-
 // Len returns str's utf8 rune length.
 func Len(str string) int {
 	return utf8.RuneCountInString(str)

@@ -8,7 +8,6 @@ import (
 	"runtime"
 )
 
-
 // FuncName get func name
 func FuncName(f interface{}) string {
 	return runtime.FuncForPC(reflect.ValueOf(f).Pointer()).Name()
@@ -22,4 +21,11 @@ func PkgName() string {
 	line, _, _ := r.ReadLine()
 	pkgName := bytes.TrimPrefix(line, []byte("package "))
 	return string(pkgName)
+}
+
+// PanicIfErr if error is not empty
+func PanicIfErr(err error) {
+	if err != nil {
+		panic(err)
+	}
 }

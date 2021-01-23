@@ -7,7 +7,6 @@ import (
 	"unicode/utf8"
 )
 
-
 // Replace strings but return []byte
 func ReplaceToBytes(s, old, new string, n int) []byte {
 	if old == new || n == 0 {

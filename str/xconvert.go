@@ -8,7 +8,6 @@ import (
 	"unicode/utf8"
 )
 
-
 // ToCamelCase is to convert words separated by space, underscore and hyphen to camel case.
 //
 // Some samples.

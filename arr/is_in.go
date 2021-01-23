@@ -6,7 +6,6 @@
 
 package arr
 
-
 // If `item` in `data` return true else return false.
 func StrIn(data []string, item string) bool {
 	for _, i := range data {

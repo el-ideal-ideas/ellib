@@ -2,9 +2,8 @@
 
 package arr
 
-
 // Compare slice data, if all slices are equal, return true. Otherwise, return false.
-func StrIsSame(data... []string) bool {
+func StrIsSame(data ...[]string) bool {
 	// check arguments
 	count := len(data)
 	if count < 2 {
@@ -30,7 +29,7 @@ func StrIsSame(data... []string) bool {
 }
 
 // Compare slice data, if all slices are equal, return true. Otherwise, return false.
-func IntIsSame(data... []int) bool {
+func IntIsSame(data ...[]int) bool {
 	// check arguments
 	count := len(data)
 	if count < 2 {
@@ -56,7 +55,7 @@ func IntIsSame(data... []int) bool {
 }
 
 // Compare slice data, if all slices are equal, return true. Otherwise, return false.
-func Int8IsSame(data... []int8) bool {
+func Int8IsSame(data ...[]int8) bool {
 	// check arguments
 	count := len(data)
 	if count < 2 {
@@ -82,7 +81,7 @@ func Int8IsSame(data... []int8) bool {
 }
 
 // Compare slice data, if all slices are equal, return true. Otherwise, return false.
-func Int16IsSame(data... []int16) bool {
+func Int16IsSame(data ...[]int16) bool {
 	// check arguments
 	count := len(data)
 	if count < 2 {
@@ -108,7 +107,7 @@ func Int16IsSame(data... []int16) bool {
 }
 
 // Compare slice data, if all slices are equal, return true. Otherwise, return false.
-func Int32IsSame(data... []int32) bool {
+func Int32IsSame(data ...[]int32) bool {
 	// check arguments
 	count := len(data)
 	if count < 2 {
@@ -134,7 +133,7 @@ func Int32IsSame(data... []int32) bool {
 }
 
 // Compare slice data, if all slices are equal, return true. Otherwise, return false.
-func Int64IsSame(data... []int64) bool {
+func Int64IsSame(data ...[]int64) bool {
 	// check arguments
 	count := len(data)
 	if count < 2 {
@@ -160,7 +159,7 @@ func Int64IsSame(data... []int64) bool {
 }
 
 // Compare slice data, if all slices are equal, return true. Otherwise, return false.
-func UintIsSame(data... []uint) bool {
+func UintIsSame(data ...[]uint) bool {
 	// check arguments
 	count := len(data)
 	if count < 2 {
@@ -186,7 +185,7 @@ func UintIsSame(data... []uint) bool {
 }
 
 // Compare slice data, if all slices are equal, return true. Otherwise, return false.
-func Uint8IsSame(data... []uint8) bool {
+func Uint8IsSame(data ...[]uint8) bool {
 	// check arguments
 	count := len(data)
 	if count < 2 {
@@ -212,7 +211,7 @@ func Uint8IsSame(data... []uint8) bool {
 }
 
 // Compare slice data, if all slices are equal, return true. Otherwise, return false.
-func Uint16IsSame(data... []uint16) bool {
+func Uint16IsSame(data ...[]uint16) bool {
 	// check arguments
 	count := len(data)
 	if count < 2 {
@@ -238,7 +237,7 @@ func Uint16IsSame(data... []uint16) bool {
 }
 
 // Compare slice data, if all slices are equal, return true. Otherwise, return false.
-func Uint32IsSame(data... []uint32) bool {
+func Uint32IsSame(data ...[]uint32) bool {
 	// check arguments
 	count := len(data)
 	if count < 2 {
@@ -264,7 +263,7 @@ func Uint32IsSame(data... []uint32) bool {
 }
 
 // Compare slice data, if all slices are equal, return true. Otherwise, return false.
-func Uint64IsSame(data... []uint64) bool {
+func Uint64IsSame(data ...[]uint64) bool {
 	// check arguments
 	count := len(data)
 	if count < 2 {
@@ -290,7 +289,7 @@ func Uint64IsSame(data... []uint64) bool {
 }
 
 // Compare slice data, if all slices are equal, return true. Otherwise, return false.
-func RuneIsSame(data... []rune) bool {
+func RuneIsSame(data ...[]rune) bool {
 	// check arguments
 	count := len(data)
 	if count < 2 {
@@ -316,7 +315,7 @@ func RuneIsSame(data... []rune) bool {
 }
 
 // Compare slice data, if all slices are equal, return true. Otherwise, return false.
-func ByteIsSame(data... []byte) bool {
+func ByteIsSame(data ...[]byte) bool {
 	// check arguments
 	count := len(data)
 	if count < 2 {
@@ -342,7 +341,7 @@ func ByteIsSame(data... []byte) bool {
 }
 
 // Compare slice data, if all slices are equal, return true. Otherwise, return false.
-func Float32IsSame(data... []float32) bool {
+func Float32IsSame(data ...[]float32) bool {
 	// check arguments
 	count := len(data)
 	if count < 2 {
@@ -368,7 +367,7 @@ func Float32IsSame(data... []float32) bool {
 }
 
 // Compare slice data, if all slices are equal, return true. Otherwise, return false.
-func Float64IsSame(data... []float64) bool {
+func Float64IsSame(data ...[]float64) bool {
 	// check arguments
 	count := len(data)
 	if count < 2 {

@@ -3,15 +3,14 @@
 package dump
 
 import (
+	"github.com/el-ideal-ideas/ellib/str"
+	"github.com/gookit/color"
 	"io"
 	"path"
 	"reflect"
 	"runtime"
 	"strconv"
 	"strings"
-
-	"github.com/gookit/color"
-	"github.com/gookit/goutil/strutil"
 )
 
 // Options for dump vars
@@ -143,7 +142,7 @@ func (d *Dumper) advance(step int) {
 	if d.curDepth > 1 {
 		d.prevDepth += step
 		// d.lineEnd = ",\n"
-		d.indentPrev = strutil.Repeat(string(d.IndentChar), d.IndentLen*d.prevDepth)
+		d.indentPrev = str.Repeat(string(d.IndentChar), d.IndentLen*d.prevDepth)
 	} else {
 		// d.lineEnd = "\n"
 		d.prevDepth = 0

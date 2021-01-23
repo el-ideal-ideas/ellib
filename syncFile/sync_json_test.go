@@ -89,16 +89,13 @@ func TestSyncJSON(t *testing.T) {
 	if d := syncJson.GetBool("key09"); d != true {
 		t.Errorf("The response must be true, but got %#v", d)
 	}
-	if d := syncJson.GetArray("key03");
-	!(d[0].Int() == 1 && d[1].Int() == 2 && d[2].Int() == 3 && d[3].Int() == 4) {
+	if d := syncJson.GetArray("key03"); !(d[0].Int() == 1 && d[1].Int() == 2 && d[2].Int() == 3 && d[3].Int() == 4) {
 		t.Errorf("The response must be [1, 2, 3, 4], but got %#v", d)
 	}
-	if d := syncJson.GetArrayOfInt("key03");
-	!(d[0] == 1 && d[1] == 2 && d[2] == 3 && d[3] == 4) {
+	if d := syncJson.GetArrayOfInt("key03"); !(d[0] == 1 && d[1] == 2 && d[2] == 3 && d[3] == 4) {
 		t.Errorf("The response must be [1, 2, 3, 4], but got %#v", d)
 	}
-	if d := syncJson.GetArrayOfString("key04");
-		!(d[0] == "A" && d[1] == "B" && d[2] == "C" && d[3] == "D") {
+	if d := syncJson.GetArrayOfString("key04"); !(d[0] == "A" && d[1] == "B" && d[2] == "C" && d[3] == "D") {
 		t.Errorf("The response must be [\"A\", \"B\", \"C\", \"D\"], but got %#v", d)
 	}
 	// --------

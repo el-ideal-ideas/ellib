@@ -1,13 +1,12 @@
 // +build !windows,!darwin
 
-package process
+package sys
 
 import (
 	"os"
 	"path/filepath"
 	"strconv"
 )
-
 
 // Exists check process running by given pid
 func Exists(pid int) bool {

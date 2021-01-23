@@ -10,7 +10,6 @@ import (
 	"unsafe"
 )
 
-
 // Convert string to []byte (faster than ToBytes)
 // Dangerous!!
 // This function is very dangerous (but really fast)

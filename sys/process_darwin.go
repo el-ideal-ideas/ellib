@@ -7,7 +7,6 @@ import (
 	"syscall"
 )
 
-
 // Exists check process running by given pid
 func Exists(pid int) bool {
 	// OS X does not have a proc filesystem.

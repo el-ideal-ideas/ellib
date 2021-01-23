@@ -5,7 +5,6 @@ import (
 	"time"
 )
 
-
 var (
 	DefMinInt = 1000
 	DefMaxInt = 9999
