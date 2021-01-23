@@ -1,10 +1,12 @@
 package fs
 
 import (
+	"github.com/el-ideal-ideas/ellib/env"
 	"io"
 	"net/http"
 	"os"
 	"path/filepath"
+	"strings"
 )
 
 const (
@@ -126,4 +128,28 @@ func SelfDir() (path string, err error) {
 		return
 	}
 	return filepath.Dir(exe), nil
+}
+
+func ParentDir(path string) (string, error) {
+	p, err := filepath.Abs(path)
+	if err != nil {
+		return "", err
+	}
+	if env.IsWin() {
+		i := strings.LastIndex(p, "\\")
+		if i == -1 {
+			return p, nil
+		} else {
+			return p[:i], nil
+		}
+	} else {
+		i := strings.LastIndex(p, "/")
+		if i == -1 {
+			return p, nil
+		} else if i == 0 {
+			return "/", nil
+		} else {
+			return p[:i], nil
+		}
+	}
 }
