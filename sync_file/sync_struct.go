@@ -7,13 +7,15 @@
 package sync_file
 
 import (
-	"encoding/json"
+	jsoniter "github.com/json-iterator/go"
 	"github.com/tidwall/gjson"
 	"io/ioutil"
 	"os"
 	"sync"
 	"time"
 )
+
+var json = jsoniter.ConfigCompatibleWithStandardLibrary
 
 // This controller can stop the sync-goroutines
 type SyncStructController struct {
