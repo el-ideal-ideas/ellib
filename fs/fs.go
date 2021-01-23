@@ -130,6 +130,7 @@ func SelfDir() (path string, err error) {
 	return filepath.Dir(exe), nil
 }
 
+// Get the path of parent directory.
 func ParentDir(path string) (string, error) {
 	p, err := filepath.Abs(path)
 	if err != nil {
