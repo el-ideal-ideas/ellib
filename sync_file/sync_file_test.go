@@ -1,4 +1,4 @@
-package syncFile
+package sync_file
 
 import (
 	"bytes"

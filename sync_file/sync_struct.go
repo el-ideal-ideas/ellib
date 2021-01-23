@@ -4,7 +4,7 @@
 // Important:
 // All fields in the struct, must start with upper case.
 
-package syncFile
+package sync_file
 
 import (
 	"encoding/json"

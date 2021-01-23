@@ -3,7 +3,7 @@
 // If you change the file, The new data will be reloaded to memory automatically.
 // If you change the data in memory, Changes will be applied to file automatically.
 
-package syncFile
+package sync_file
 
 import (
 	"io/ioutil"

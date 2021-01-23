@@ -2,7 +2,7 @@
 // This module is similar to SyncFile module, But will be treated the file as a json file.
 // Json data in the memory will be synchronized with the file.
 
-package syncFile
+package sync_file
 
 import (
 	"github.com/tidwall/gjson"
