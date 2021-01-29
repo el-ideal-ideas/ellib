@@ -1,1 +1,1 @@
-# No description.
+# Common utilities for golang.
