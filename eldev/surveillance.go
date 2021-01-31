@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-type Stats struct {
+type Surveillance struct {
 	Time         int64
 	TimeForHuman string
 	NumGoroutine int
@@ -13,11 +13,11 @@ type Stats struct {
 }
 
 // Create a Stats object.
-func CurrentStats() *Stats {
+func createSurveillance() *Surveillance {
 	mem := new(runtime.MemStats)
 	runtime.ReadMemStats(mem)
 	now := time.Now()
-	return &Stats{
+	return &Surveillance{
 		Time:         now.UnixNano(),
 		TimeForHuman: now.Format(time.RFC3339Nano),
 		NumGoroutine: runtime.NumGoroutine(),
@@ -26,7 +26,7 @@ func CurrentStats() *Stats {
 }
 
 // Update stats.
-func (s *Stats) Update() {
+func (s *Surveillance) updateSurveillance() {
 	now := time.Now()
 	s.Time = now.UnixNano()
 	s.TimeForHuman = now.Format(time.RFC3339Nano)
@@ -35,13 +35,13 @@ func (s *Stats) Update() {
 }
 
 // Start a goroutine and check system stats with interval.
-func Start(d time.Duration, f func(*Stats)) {
+func RunSurveillance(d time.Duration, f func(*Surveillance)) {
 	go func() {
-		s := CurrentStats()
+		s := createSurveillance()
 		timer := time.NewTicker(d)
 		defer timer.Stop()
 		for range timer.C {
-			s.Update()
+			s.updateSurveillance()
 			f(s)
 		}
 	}()
