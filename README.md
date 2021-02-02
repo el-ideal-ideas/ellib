@@ -11,6 +11,17 @@ issue & pull-request 大歓迎
 # 安装，install, インストール
 `go get github.com/el-ideal-ideas/ellib`
 
+# 目录，index, 目次
+- [elarr](#elarr)
+- [elconv](#elconv)
+- [eldev](#eldev)
+- [eldump](#eldump)
+- [elenv](#elenv)
+- [elfs](#elfs)
+- [elinfo](#elinfo)
+- [eljson](#eljson)
+
+
 ## elarr
 - 数组 & 切片
 - array & slice
@@ -233,6 +244,30 @@ elarr.UniqueByte(arr []byte) []byte
 elarr.UniqueRune(arr []rune) []rune
 elarr.UniqueFloat32(arr []float32) []float32
 elarr.UniqueFloat64(arr []float64) []float64
+
+// ----------------------------------------------------------------------------
+
+// 消除不需要的数据
+// filter items in slice or array
+// 不要なデータを削除
+elarr.Filter(data interface{}, condition func(interface{})bool) []interface{}
+elarr.FilterInter(data []interface{}, condition func(interface{})bool) []interface{}
+elarr.FilterStr(data []string, condition func(string)bool) []string
+elarr.FilterInt(data []int, condition func(int)bool) []int
+elarr.FilterInt8(data []int8, condition func(int8)bool) []int8
+elarr.FilterInt16(data []int16, condition func(int16)bool) []int16
+elarr.FilterInt32(data []int32, condition func(int32)bool) []int32
+elarr.FilterInt64(data []int64, condition func(int64)bool) []int64
+elarr.FilterUint(data []uint, condition func(uint)bool) []uint
+elarr.FilterUint8(data []uint8, condition func(uint8)bool) []uint8
+elarr.FilterUint16(data []uint16, condition func(uint16)bool) []uint16
+elarr.FilterUint32(data []uint32, condition func(uint32)bool) []uint32
+elarr.FilterUint64(data []uint64, condition func(uint64)bool) []uint64
+elarr.FilterRune(data []rune, condition func(rune)bool) []rune
+elarr.FilterByte(data []byte, condition func(byte)bool) []byte
+elarr.FilterFloat32(data []float32, condition func(float32)bool) []float32
+elarr.FilterFloat64(data []float64, condition func(float64)bool) []float64
+
 ```
 
 ## elconv
