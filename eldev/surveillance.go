@@ -34,7 +34,7 @@ func (s *Surveillance) updateSurveillance() {
 	runtime.ReadMemStats(s.MemStats)
 }
 
-// Start a goroutine and check system stats with interval.
+// Start a goroutine and check system stats with an interval.
 func RunSurveillance(d time.Duration, f func(*Surveillance)) {
 	go func() {
 		s := createSurveillance()

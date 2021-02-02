@@ -1,6 +1,18 @@
 package elarr
 
 // Remove duplicates item.
+// Maybe slow
+func UniqueInter(arr []interface{}) []interface{} {
+	res := make([]interface{}, 0, len(arr))
+	for _, v := range arr {
+		if !InInter(res, v) {
+			res = append(res, v)
+		}
+	}
+	return res
+}
+
+// Remove duplicates item.
 func UniqueStr(arr []string) []string {
 	res := make([]string, 0, len(arr))
 	tmp := make(map[string]bool)

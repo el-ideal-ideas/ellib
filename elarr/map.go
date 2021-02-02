@@ -1,12 +1,14 @@
 package elarr
 
+var Map = MapInterInter
+
 // Call `f` for all item in `arr`, get the response as a slice.
 // Like python's map function.
 func MapStrInter(arr []string, f func(string) interface{}) []interface{} {
 	res := make([]interface{}, len(arr))
 	l := len(arr)
 	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
+		res[i] = f(arr[i])
 	}
 	return res
 }
@@ -17,7 +19,7 @@ func MapStrStr(arr []string, f func(string) string) []string {
 	res := make([]string, len(arr))
 	l := len(arr)
 	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
+		res[i] = f(arr[i])
 	}
 	return res
 }
@@ -28,7 +30,7 @@ func MapStrInt(arr []string, f func(string) int) []int {
 	res := make([]int, len(arr))
 	l := len(arr)
 	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
+		res[i] = f(arr[i])
 	}
 	return res
 }
@@ -39,7 +41,7 @@ func MapStrUint(arr []string, f func(string) uint) []uint {
 	res := make([]uint, len(arr))
 	l := len(arr)
 	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
+		res[i] = f(arr[i])
 	}
 	return res
 }
@@ -50,7 +52,7 @@ func MapStrFloat64(arr []string, f func(string) float64) []float64 {
 	res := make([]float64, len(arr))
 	l := len(arr)
 	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
+		res[i] = f(arr[i])
 	}
 	return res
 }
@@ -61,7 +63,7 @@ func MapIntInter(arr []int, f func(int) interface{}) []interface{} {
 	res := make([]interface{}, len(arr))
 	l := len(arr)
 	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
+		res[i] = f(arr[i])
 	}
 	return res
 }
@@ -72,7 +74,7 @@ func MapIntStr(arr []int, f func(int) string) []string {
 	res := make([]string, len(arr))
 	l := len(arr)
 	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
+		res[i] = f(arr[i])
 	}
 	return res
 }
@@ -83,7 +85,7 @@ func MapIntInt(arr []int, f func(int) int) []int {
 	res := make([]int, len(arr))
 	l := len(arr)
 	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
+		res[i] = f(arr[i])
 	}
 	return res
 }
@@ -94,18 +96,7 @@ func MapIntUint(arr []int, f func(int) uint) []uint {
 	res := make([]uint, len(arr))
 	l := len(arr)
 	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
-	}
-	return res
-}
-
-// Call `f` for all item in `arr`, get the response as a slice.
-// Like python's map function.
-func MapFloat64Inter(arr []float64, f func(float64) interface{}) []interface{} {
-	res := make([]interface{}, len(arr))
-	l := len(arr)
-	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
+		res[i] = f(arr[i])
 	}
 	return res
 }
@@ -116,7 +107,18 @@ func MapIntFloat64(arr []int, f func(int) float64) []float64 {
 	res := make([]float64, len(arr))
 	l := len(arr)
 	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
+		res[i] = f(arr[i])
+	}
+	return res
+}
+
+// Call `f` for all item in `arr`, get the response as a slice.
+// Like python's map function.
+func MapFloat64Inter(arr []float64, f func(float64) interface{}) []interface{} {
+	res := make([]interface{}, len(arr))
+	l := len(arr)
+	for i := 0; i < l; i++ {
+		res[i] = f(arr[i])
 	}
 	return res
 }
@@ -127,7 +129,7 @@ func MapFloat64Str(arr []float64, f func(float64) string) []string {
 	res := make([]string, len(arr))
 	l := len(arr)
 	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
+		res[i] = f(arr[i])
 	}
 	return res
 }
@@ -138,7 +140,7 @@ func MapFloat64Int(arr []float64, f func(float64) int) []int {
 	res := make([]int, len(arr))
 	l := len(arr)
 	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
+		res[i] = f(arr[i])
 	}
 	return res
 }
@@ -149,7 +151,7 @@ func MapFloat64Uint(arr []float64, f func(float64) uint) []uint {
 	res := make([]uint, len(arr))
 	l := len(arr)
 	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
+		res[i] = f(arr[i])
 	}
 	return res
 }
@@ -160,7 +162,7 @@ func MapFloat64Float64(arr []float64, f func(float64) float64) []float64 {
 	res := make([]float64, len(arr))
 	l := len(arr)
 	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
+		res[i] = f(arr[i])
 	}
 	return res
 }
@@ -171,7 +173,7 @@ func MapUintInter(arr []uint, f func(uint) interface{}) []interface{} {
 	res := make([]interface{}, len(arr))
 	l := len(arr)
 	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
+		res[i] = f(arr[i])
 	}
 	return res
 }
@@ -182,7 +184,7 @@ func MapUintStr(arr []uint, f func(uint) string) []string {
 	res := make([]string, len(arr))
 	l := len(arr)
 	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
+		res[i] = f(arr[i])
 	}
 	return res
 }
@@ -193,7 +195,7 @@ func MapUintInt(arr []uint, f func(uint) int) []int {
 	res := make([]int, len(arr))
 	l := len(arr)
 	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
+		res[i] = f(arr[i])
 	}
 	return res
 }
@@ -204,7 +206,7 @@ func MapUintUint(arr []uint, f func(uint) uint) []uint {
 	res := make([]uint, len(arr))
 	l := len(arr)
 	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
+		res[i] = f(arr[i])
 	}
 	return res
 }
@@ -215,7 +217,7 @@ func MapUintFloat64(arr []uint, f func(uint) float64) []float64 {
 	res := make([]float64, len(arr))
 	l := len(arr)
 	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
+		res[i] = f(arr[i])
 	}
 	return res
 }
@@ -226,7 +228,7 @@ func MapInterInter(arr []interface{}, f func(interface{}) interface{}) []interfa
 	res := make([]interface{}, len(arr))
 	l := len(arr)
 	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
+		res[i] = f(arr[i])
 	}
 	return res
 }
@@ -237,7 +239,7 @@ func MapInterStr(arr []interface{}, f func(interface{}) string) []string {
 	res := make([]string, len(arr))
 	l := len(arr)
 	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
+		res[i] = f(arr[i])
 	}
 	return res
 }
@@ -248,7 +250,7 @@ func MapInterInt(arr []interface{}, f func(interface{}) int) []int {
 	res := make([]int, len(arr))
 	l := len(arr)
 	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
+		res[i] = f(arr[i])
 	}
 	return res
 }
@@ -259,7 +261,7 @@ func MapInterUint(arr []interface{}, f func(interface{}) uint) []uint {
 	res := make([]uint, len(arr))
 	l := len(arr)
 	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
+		res[i] = f(arr[i])
 	}
 	return res
 }
@@ -270,7 +272,7 @@ func MapInterFloat64(arr []interface{}, f func(interface{}) float64) []float64 {
 	res := make([]float64, len(arr))
 	l := len(arr)
 	for i := 0; i < l; i++ {
-		res[0] = f(arr[0])
+		res[i] = f(arr[i])
 	}
 	return res
 }

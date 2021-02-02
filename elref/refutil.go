@@ -89,6 +89,26 @@ func IsIn(needle interface{}, haystack interface{}) bool {
 	return false
 }
 
+// If `v` is array, return true. Otherwise return false.
+func IsArray(v interface{}) bool {
+	return reflect.ValueOf(v).Kind() == reflect.Array
+}
+
+// If `v` is slice, return true. Otherwise return false.
+func IsSlice(v interface{}) bool {
+	return reflect.ValueOf(v).Kind() == reflect.Slice
+}
+
+// If `v` is array or slice, return true. Otherwise return false.
+func IsArrayOrSlice(v interface{}) bool {
+	return reflect.ValueOf(v).Kind() == reflect.Slice || reflect.ValueOf(v).Kind() == reflect.Array
+}
+
+// If `v` is map, return true. Otherwise return false.
+func IsMap(v interface{}) bool {
+	return reflect.ValueOf(v).Kind() == reflect.Map
+}
+
 // Flip key and value in the map.
 func MapFlip(m interface{}) map[interface{}]interface{} {
 	res := make(map[interface{}]interface{})
@@ -151,4 +171,9 @@ func GetMapValues(m interface{}) []interface{} {
 		panic("[GetMapValues]m type must be map")
 	}
 	return res
+}
+
+// Returns a string of variable type
+func Type(v interface{}) string {
+	return reflect.TypeOf(v).String()
 }

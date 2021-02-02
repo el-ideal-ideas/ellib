@@ -6,12 +6,24 @@
 
 package elarr
 
+import "reflect"
+
 // If `item` in `data` return true else return false.
 // call function `f` for all items in `data`, When `f` returns true,
 // exit from the loop, and return true.
 func InF(data []interface{}, f func(interface{}) bool) bool {
 	for _, i := range data {
 		if f(i) {
+			return true
+		}
+	}
+	return false
+}
+
+// If `item` in `data` return true else return false.
+func InInter(data []interface{}, item interface{}) bool {
+	for _, i := range data {
+		if reflect.DeepEqual(i, item) {
 			return true
 		}
 	}

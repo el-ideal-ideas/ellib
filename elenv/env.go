@@ -12,3 +12,6 @@ func GetEnv(name string, def ...string) string {
 	}
 	return val
 }
+
+// SetEnv can set environment value
+var SetEnv = os.Setenv

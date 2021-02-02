@@ -126,6 +126,12 @@ func IsLower(s string) bool {
 	return flag
 }
 
+// Strip returns a slice of the string s, with all leading
+// and trailing white space removed, as defined by Unicode.
+func Strip(s string) string {
+	return strings.TrimSpace(s)
+}
+
 // -------- other utilities for strings --------
 
 var IsEmailRegex = regexp.MustCompile(`^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$`)

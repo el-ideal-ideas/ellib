@@ -3,6 +3,12 @@ package elarr
 import "testing"
 
 func TestIsIn(t *testing.T) {
+	if !InF([]interface{}{"も", "ず", "く"}, func(v interface{}) bool { return v.(string) == "く" }) {
+		t.Errorf("Invalid result")
+	}
+	if !InInter([]interface{}{"も", "ず", "く"}, "も") {
+		t.Errorf("Invalid result")
+	}
 	if !InStr([]string{"も", "ず", "く"}, "も") {
 		t.Errorf("Invalid result")
 	}

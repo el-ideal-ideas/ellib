@@ -1,6 +1,7 @@
 package elarr
 
 import (
+	"github.com/el-ideal-ideas/ellib/elconv"
 	"math"
 	"strconv"
 	"unicode/utf8"
@@ -10,7 +11,7 @@ import (
 func ToStrings(arr []interface{}) []string {
 	res := make([]string, len(arr))
 	for i, v := range arr {
-		res[i] = v.(string)
+		res[i] = elconv.AsStr(v)
 	}
 	return res
 }
@@ -19,7 +20,7 @@ func ToStrings(arr []interface{}) []string {
 func ToInts(arr []interface{}) []int {
 	res := make([]int, len(arr))
 	for i, v := range arr {
-		res[i] = v.(int)
+		res[i] = elconv.AsInt(v)
 	}
 	return res
 }
@@ -28,7 +29,7 @@ func ToInts(arr []interface{}) []int {
 func ToInt8s(arr []interface{}) []int8 {
 	res := make([]int8, len(arr))
 	for i, v := range arr {
-		res[i] = v.(int8)
+		res[i] = int8(elconv.AsInt(v))
 	}
 	return res
 }
@@ -37,7 +38,7 @@ func ToInt8s(arr []interface{}) []int8 {
 func ToInt16s(arr []interface{}) []int16 {
 	res := make([]int16, len(arr))
 	for i, v := range arr {
-		res[i] = v.(int16)
+		res[i] = int16(elconv.AsInt(v))
 	}
 	return res
 }
@@ -46,7 +47,7 @@ func ToInt16s(arr []interface{}) []int16 {
 func ToInt32s(arr []interface{}) []int32 {
 	res := make([]int32, len(arr))
 	for i, v := range arr {
-		res[i] = v.(int32)
+		res[i] = int32(elconv.AsInt(v))
 	}
 	return res
 }
@@ -55,7 +56,7 @@ func ToInt32s(arr []interface{}) []int32 {
 func ToInt64s(arr []interface{}) []int64 {
 	res := make([]int64, len(arr))
 	for i, v := range arr {
-		res[i] = v.(int64)
+		res[i] = int64(elconv.AsInt(v))
 	}
 	return res
 }
@@ -64,7 +65,7 @@ func ToInt64s(arr []interface{}) []int64 {
 func ToUints(arr []interface{}) []uint {
 	res := make([]uint, len(arr))
 	for i, v := range arr {
-		res[i] = v.(uint)
+		res[i] = elconv.AsUint(v)
 	}
 	return res
 }
@@ -73,7 +74,7 @@ func ToUints(arr []interface{}) []uint {
 func ToUint8s(arr []interface{}) []uint8 {
 	res := make([]uint8, len(arr))
 	for i, v := range arr {
-		res[i] = v.(uint8)
+		res[i] = uint8(elconv.AsUint(v))
 	}
 	return res
 }
@@ -82,7 +83,7 @@ func ToUint8s(arr []interface{}) []uint8 {
 func ToUint16s(arr []interface{}) []uint16 {
 	res := make([]uint16, len(arr))
 	for i, v := range arr {
-		res[i] = v.(uint16)
+		res[i] = uint16(elconv.AsUint(v))
 	}
 	return res
 }
@@ -91,7 +92,7 @@ func ToUint16s(arr []interface{}) []uint16 {
 func ToUint32s(arr []interface{}) []uint32 {
 	res := make([]uint32, len(arr))
 	for i, v := range arr {
-		res[i] = v.(uint32)
+		res[i] = uint32(elconv.AsUint(v))
 	}
 	return res
 }
@@ -100,7 +101,7 @@ func ToUint32s(arr []interface{}) []uint32 {
 func ToUint64s(arr []interface{}) []uint64 {
 	res := make([]uint64, len(arr))
 	for i, v := range arr {
-		res[i] = v.(uint64)
+		res[i] = uint64(elconv.AsUint(v))
 	}
 	return res
 }
@@ -109,7 +110,7 @@ func ToUint64s(arr []interface{}) []uint64 {
 func ToBytes(arr []interface{}) []byte {
 	res := make([]byte, len(arr))
 	for i, v := range arr {
-		res[i] = v.(byte)
+		res[i] = byte(elconv.AsInt(v))
 	}
 	return res
 }
@@ -118,7 +119,7 @@ func ToBytes(arr []interface{}) []byte {
 func ToRunes(arr []interface{}) []rune {
 	res := make([]rune, len(arr))
 	for i, v := range arr {
-		res[i] = v.(rune)
+		res[i] = rune(elconv.AsInt(v))
 	}
 	return res
 }
@@ -127,7 +128,7 @@ func ToRunes(arr []interface{}) []rune {
 func ToFloat32s(arr []interface{}) []float32 {
 	res := make([]float32, len(arr))
 	for i, v := range arr {
-		res[i] = v.(float32)
+		res[i] = elconv.AsFloat32(v)
 	}
 	return res
 }
@@ -136,7 +137,7 @@ func ToFloat32s(arr []interface{}) []float32 {
 func ToFloat64s(arr []interface{}) []float64 {
 	res := make([]float64, len(arr))
 	for i, v := range arr {
-		res[i] = v.(float64)
+		res[i] = elconv.AsFloat64(v)
 	}
 	return res
 }
@@ -432,7 +433,7 @@ func StringsToFloat64s(arr []string) ([]float64, error) {
 }
 
 // convert []rune to []byte
-func Runes2Bytes(rs []rune) []byte {
+func RunesToBytes(rs []rune) []byte {
 	size := 0
 	for _, r := range rs {
 		size += utf8.RuneLen(r)

@@ -117,4 +117,7 @@ func TestConvert(t *testing.T) {
 	if data, _ := StringsToFloat64s([]string{"1", "2", "3"}); !IsSameFloat64(data, []float64{1, 2, 3}) {
 		t.Errorf("Invalid result")
 	}
+	if data := RunesToBytes([]rune{'も', 'ず', 'く'}); !IsSameByte(data, []byte("もずく")) {
+		t.Errorf("Invalid result")
+	}
 }

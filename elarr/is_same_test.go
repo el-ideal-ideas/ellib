@@ -3,6 +3,12 @@ package elarr
 import "testing"
 
 func TestIsSame(t *testing.T) {
+	if !IsSameInter([]interface{}{"も", "ず", "く"}, []string{"も", "ず", "く"}, []string{"も", "ず", "く"}) {
+		t.Errorf("Invalid result")
+	}
+	if !IsSameInterSlice([]interface{}{"も", "ず", "く"}, []interface{}{"も", "ず", "く"}, []interface{}{"も", "ず", "く"}) {
+		t.Errorf("Invalid result")
+	}
 	if !IsSameStr([]string{"も", "ず", "く"}, []string{"も", "ず", "く"}, []string{"も", "ず", "く"}) {
 		t.Errorf("Invalid result")
 	}

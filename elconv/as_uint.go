@@ -5,6 +5,12 @@ import "strconv"
 // convert value to uint
 func AsUint(v interface{}) uint {
 	switch v.(type) {
+	case int, int8, int16, int32, int64, float32, float64:
+		if AsFloat64(v) <= 0 {
+			return 0
+		}
+	}
+	switch v.(type) {
 	case int:
 		return uint(v.(int))
 	case int8:
@@ -43,6 +49,12 @@ func AsUint(v interface{}) uint {
 		} else {
 			return 0
 		}
+	case bool:
+		if v.(bool) {
+			return 1
+		} else {
+			return 0
+		}
 	default:
 		return 0
 	}
@@ -50,6 +62,12 @@ func AsUint(v interface{}) uint {
 
 // convert value to uint64
 func AsUint64(v interface{}) uint64 {
+	switch v.(type) {
+	case int, int8, int16, int32, int64, float32, float64:
+		if AsFloat64(v) <= 0 {
+			return 0
+		}
+	}
 	switch v.(type) {
 	case int:
 		return uint64(v.(int))
@@ -86,6 +104,12 @@ func AsUint64(v interface{}) uint64 {
 		f, e := strconv.ParseFloat(v.(string), 64)
 		if e == nil {
 			return uint64(f)
+		} else {
+			return 0
+		}
+	case bool:
+		if v.(bool) {
+			return 1
 		} else {
 			return 0
 		}

@@ -43,6 +43,12 @@ func AsInt(v interface{}) int {
 		} else {
 			return 0
 		}
+	case bool:
+		if v.(bool) {
+			return 1
+		} else {
+			return 0
+		}
 	default:
 		return 0
 	}
@@ -86,6 +92,12 @@ func AsInt64(v interface{}) int64 {
 		f, e := strconv.ParseFloat(v.(string), 64)
 		if e == nil {
 			return int64(f)
+		} else {
+			return 0
+		}
+	case bool:
+		if v.(bool) {
+			return 1
 		} else {
 			return 0
 		}
