@@ -12,15 +12,24 @@ issue & pull-request 大歓迎
 `go get github.com/el-ideal-ideas/ellib`
 
 # 目录，index, 目次
-- [elarr](#elarr)
-- [elconv](#elconv)
-- [eldev](#eldev)
-- [eldump](#eldump)
-- [elenv](#elenv)
-- [elfs](#elfs)
-- [elinfo](#elinfo)
-- [eljson](#eljson)
-
+- [elarr](#elarr) utilities for array & slice.
+- [elconv](#elconv) utilities for data convert.
+- [eldev](#eldev) utilities for debug.
+- [eldump](#eldump) utilities for dump data to debug.
+- [elenv](#elenv) utilities for system environment.
+- [elfs](#elfs) utilities for filesystem.
+- [elinfo](#elinfo) information about this package.
+- [eljson](#eljson) wrapper of github.com/json-iterator/go
+- [elmap](#elmap) utilities for map.
+- [elmath](#elmath) utilities for math.
+- [elnet](#elnet) utilities for network
+- [elrand](#elrand) utilities for random.
+- [elref](#elref) utilities used reflect.
+- [elstr](#elstr) utilities for string.
+- [elsyncfile](#elsyncfile) this package can sync struct with file.
+- [elsys](#elsys) utilities for system.
+- [eltengo](#eltengo) utilities for tengo script.
+- [elutils](#elutils) some common utilities.
 
 ## elarr
 - 数组 & 切片
