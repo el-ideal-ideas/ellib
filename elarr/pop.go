@@ -358,3 +358,25 @@ func PopFloat64(v []float64, index int) (res float64, newPtr []float64) {
 	}
 	return
 }
+
+// Pop can get one item and remove it from array&slice.
+// index can be negative number.
+func PopBool(v []bool, index int) (res bool, newPtr []bool) {
+	if index >= len(v) || -index > len(v) {
+		return false, v
+	}
+	if index > 0 {
+		res = v[index]
+		newPtr = append(v[:index], v[index+1:]...)
+	} else if index == 0 {
+		res = v[0]
+		newPtr = v[1:]
+	} else if index == -1 {
+		res = v[len(v)-1]
+		newPtr = v[:len(v)-1]
+	} else {
+		res = v[len(v)+index]
+		newPtr = append(v[:len(v)+index], v[len(v)+index+1:]...)
+	}
+	return
+}

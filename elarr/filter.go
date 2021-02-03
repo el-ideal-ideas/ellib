@@ -214,3 +214,15 @@ func FilterFloat64(data []float64, condition func(float64) bool) []float64 {
 	}
 	return res
 }
+
+// Filter will return a new slice containing only the elements
+// that return true from the condition.
+func FilterBool(data []bool, condition func(bool) bool) []bool {
+	res := make([]bool, 0, len(data))
+	for i := 0; i < len(data); i++ {
+		if condition(data[i]) {
+			res = append(res, data[i])
+		}
+	}
+	return res
+}

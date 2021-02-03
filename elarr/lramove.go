@@ -97,3 +97,9 @@ func LRemoveFloat64(v []float64, item float64) (newPtr []float64) {
 	_, newPtr = PopFloat64(v, LIndexFloat64(v, item))
 	return
 }
+
+// LRemove the last element that is same as the given item.
+func LRemoveBool(v []bool, item bool) (newPtr []bool) {
+	_, newPtr = PopBool(v, LIndexBool(v, item))
+	return
+}

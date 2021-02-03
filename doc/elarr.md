@@ -23,6 +23,7 @@ elarr.ToBytes(arr []interface{}) []byte
 elarr.ToRunes(arr []interface{}) []rune
 elarr.ToFloat32s(arr []interface{}) []float32
 elarr.ToFloat64s(arr []interface{}) []float64
+elarr.ToBools(arr []interface{}) []bool
 // 类型转换 (转换到字符串的切片)
 // Convert (to []string)
 // 型変換系 ([]string型に変換)
@@ -59,6 +60,7 @@ elarr.RunesToBytes(rs []rune) []byte
 // 用指定数据填充切片
 // Fill slice with target data
 // 指定のデータでスライスを満たす
+elarr.Fill(arr []interface{}, item interface{})
 elarr.FillInter(arr []interface{}, item interface{})
 elarr.FillStr(arr []string, item string)
 elarr.FillInt(arr []int, item int)
@@ -75,12 +77,14 @@ elarr.FillRune(arr []rune, item rune)
 elarr.FillByte(arr []byte, item byte)
 elarr.FillFloat32(arr []float32, item float32)
 elarr.FillFloat64(arr []float64, item float64)
+elarr.FillBool(arr []bool, item bool)
 
 // ----------------------------------------------------------------------------
 
 // 类似于其他语言的foreach或者for-in的功能
 // foreach (likes other languages)
 // 他の言語でforeachまたはfor-inなどと呼ばれる機能
+elarr.ForEach(arr []interface{}, f func(interface{}))
 elarr.ForEachInter(arr []interface{}, f func(interface{}))
 elarr.ForEachStr(arr []string, f func(string))
 elarr.ForEachInt(arr []int, f func(int))
@@ -97,12 +101,14 @@ elarr.ForEachRune(arr []rune, f func(rune))
 elarr.ForEachByte(arr []byte, f func(byte))
 elarr.ForEachFloat32(arr []float32, f func(float32))
 elarr.ForEachFloat64(arr []float64, f func(float64))
+elarr.ForEachBool(arr []bool, f func(bool))
 
 // ----------------------------------------------------------------------------
 
 // 如果数组中包含指定的值，则返回true
 // If the slice contains target value, return true
 // スライスが指定のデータを含んで入れば、trueを返す
+elarr.In(data []interface{}, item interface{}) bool
 elarr.InF(data []interface{}, f func(interface{}) bool) bool
 elarr.InInter(data []interface{}, item interface{}) bool
 elarr.InStr(data []string, item string) bool
@@ -120,6 +126,7 @@ elarr.InRune(data []rune, item rune)
 elarr.InByte(data []byte, item byte) bool
 elarr.InFloat32(data []float32, item float32) bool
 elarr.InFloat64(data []float64, item float64) bool
+elarr.InBool(data []float64, item float64) bool
 
 // ----------------------------------------------------------------------------
 
@@ -144,6 +151,7 @@ elarr.IsSameRune(data ...[]rune) bool
 elarr.IsSameByte(data ...[]byte) bool
 elarr.IsSameFloat32(data ...[]float32) bool
 elarr.IsSameFloat64(data ...[]float64) bool
+elarr.IsSameBool(data ...[]bool) bool
 
 // ----------------------------------------------------------------------------
 
@@ -198,12 +206,14 @@ elarr.ReverseByte(s []byte)
 elarr.ReverseRune(s []rune)
 elarr.ReverseFloat32(s []float32)
 elarr.ReverseFloat64(s []float64)
+elarr.ReverseBool(s []bool)
 
 // ----------------------------------------------------------------------------
 
 // 消除重复数据
 // Remove duplicates item
 // 重複アイテムを消す
+elarr.Unique(arr []interface{}) []interface{}
 elarr.UniqueInter(arr []interface{}) []interface{}
 elarr.UniqueStr(arr []string) []string
 elarr.UniqueInt(arr []int) []int
@@ -243,6 +253,7 @@ elarr.FilterRune(data []rune, condition func(rune)bool) []rune
 elarr.FilterByte(data []byte, condition func(byte)bool) []byte
 elarr.FilterFloat32(data []float32, condition func(float32)bool) []float32
 elarr.FilterFloat64(data []float64, condition func(float64)bool) []float64
+elarr.FilterBool(data []bool, condition func(bool) bool) []bool
 
 // ----------------------------------------------------------------------------
 
@@ -266,6 +277,7 @@ elarr.PopRune(v []rune, index int) (res rune, newPtr []rune)
 elarr.PopByte(v []byte, index int) (res byte, newPtr []byte)
 elarr.PopFloat32(v []float32, index int) (res float32, newPtr []float32)
 elarr.PopFloat64(v []float64, index int) (res float64, newPtr []float64)
+elarr.PopBool(v []bool, index int) (res bool, newPtr []bool)
 
 // ----------------------------------------------------------------------------
 
@@ -289,6 +301,7 @@ elarr.InsertRune(v []rune, index int, value rune) (newPtr []rune)
 elarr.InsertByte(v []byte, index int, value byte) (newPtr []byte)
 elarr.InsertFloat32(v []float32, index int, value float32) (newPtr []float32)
 elarr.InsertFloat64(v []float64, index int, value float64) (newPtr []float64)
+elarr.InsertBool(v []bool, index int, value bool) (newPtr []bool)
 
 // ----------------------------------------------------------------------------
 
@@ -312,6 +325,7 @@ elarr.IndexRune(v []rune, item rune) int
 elarr.IndexByte(v []byte, item byte) int
 elarr.IndexFloat32(v []float32, item float32) int
 elarr.IndexFloat64(v []float64, item float64) int
+elarr.IndexBool(v []bool, item bool) int
 
 // ----------------------------------------------------------------------------
 
@@ -335,6 +349,7 @@ elarr.LIndexRune(v []rune, item rune) int
 elarr.LIndexByte(v []byte, item byte) int
 elarr.LIndexFloat32(v []float32, item float32) int
 elarr.LIndexFloat64(v []float64, item float64) int
+elarr.LIndexBool(v []bool, item bool) int
 
 // ----------------------------------------------------------------------------
 
@@ -358,6 +373,7 @@ elarr.RemoveRune(v []rune, item rune) (newPtr []rune)
 elarr.RemoveRune(v []rune, item rune) (newPtr []rune)
 elarr.RemoveFloat32(v []float32, item float32) (newPtr []float32)
 elarr.RemoveFloat64(v []float64, item float64) (newPtr []float64)
+elarr.RemoveBool(v []bool, item bool) (newPtr []bool)
 
 // ----------------------------------------------------------------------------
 
@@ -381,6 +397,7 @@ elarr.LRemoveRune(v []rune, item rune) (newPtr []rune)
 elarr.LRemoveRune(v []rune, item rune) (newPtr []rune)
 elarr.LRemoveFloat32(v []float32, item float32) (newPtr []float32)
 elarr.LRemoveFloat64(v []float64, item float64) (newPtr []float64)
+elarr.LRemoveBool(v []bool, item bool) (newPtr []bool)
 
 // ----------------------------------------------------------------------------
 

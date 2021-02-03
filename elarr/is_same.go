@@ -507,3 +507,29 @@ func IsSameFloat64(data ...[]float64) bool {
 	}
 	return true
 }
+
+// Compare slice data, if all slices are equal, return true. Otherwise, return false.
+func IsSameBool(data ...[]bool) bool {
+	// check arguments
+	count := len(data)
+	if count < 2 {
+		return false
+	}
+	// check length
+	length := len(data[0])
+	for i := 1; i < count; i++ {
+		if len(data[i]) != length {
+			return false
+		}
+	}
+	// check items
+	for i := 0; i < length; i++ {
+		first := data[0][i]
+		for j := 1; j < count; j++ {
+			if first != data[j][i] {
+				return false
+			}
+		}
+	}
+	return true
+}

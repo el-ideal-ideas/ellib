@@ -85,4 +85,9 @@ func TestFill(t *testing.T) {
 	if !IsSameFloat64(d15, []float64{1, 1, 1}) {
 		t.Errorf("Invalid result")
 	}
+	d16 := make([]bool, 3)
+	FillBool(d16, true)
+	if !IsSameBool(d16, []bool{true, true, true}) {
+		t.Errorf("Invalid result")
+	}
 }

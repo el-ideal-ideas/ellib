@@ -353,3 +353,25 @@ func InsertFloat64(v []float64, index int, value float64) (newPtr []float64) {
 	}
 	return
 }
+
+// Insert can insert a value to array&slice at target position.
+// index can be negative number.
+func InsertBool(v []bool, index int, value bool) (newPtr []bool) {
+	if index > len(v) || -index > len(v) {
+		return v
+	}
+	if index == len(v) {
+		return append(v, value)
+	} else if index > 0 {
+		newPtr = append(v[:index+1], v[index:]...)
+		newPtr[index] = value
+	} else if index == 0 {
+		newPtr = append([]bool{value}, v...)
+	} else if index == -1 {
+		newPtr = append(v, value)
+	} else {
+		newPtr = append(v[:len(v)+index+1], v[len(v)+index:]...)
+		newPtr[len(v)+index] = value
+	}
+	return
+}

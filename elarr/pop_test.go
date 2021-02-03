@@ -108,4 +108,9 @@ func TestPop(t *testing.T) {
 	if vs != "ず" || !IsSame(ds, []interface{}{"も", "く"}) {
 		t.Errorf("Invalid result: %v, %v", vs, ds)
 	}
+	bo := []bool{true, false, false}
+	vbo, bo := PopBool(bo, 1)
+	if vbo != false || !IsSame(bo, []interface{}{true, false}) {
+		t.Errorf("Invalid result: %v, %v", vbo, bo)
+	}
 }

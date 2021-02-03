@@ -1,5 +1,7 @@
 package elarr
 
+var Unique = UniqueInter
+
 // Remove duplicates item.
 // Maybe slow
 func UniqueInter(arr []interface{}) []interface{} {

@@ -97,3 +97,9 @@ func RemoveFloat64(v []float64, item float64) (newPtr []float64) {
 	_, newPtr = PopFloat64(v, IndexFloat64(v, item))
 	return
 }
+
+// Remove the first element that is same as the given item.
+func RemoveBool(v []bool, item bool) (newPtr []bool) {
+	_, newPtr = PopBool(v, IndexBool(v, item))
+	return
+}

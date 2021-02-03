@@ -8,6 +8,8 @@ package elarr
 
 import "reflect"
 
+var In = InInter
+
 // If `item` in `data` return true else return false.
 // call function `f` for all items in `data`, When `f` returns true,
 // exit from the loop, and return true.
@@ -172,6 +174,16 @@ func InFloat32(data []float32, item float32) bool {
 
 // If `item` in `data` return true else return false.
 func InFloat64(data []float64, item float64) bool {
+	for _, i := range data {
+		if i == item {
+			return true
+		}
+	}
+	return false
+}
+
+// If `item` in `data` return true else return false.
+func InBool(data []bool, item bool) bool {
 	for _, i := range data {
 		if i == item {
 			return true

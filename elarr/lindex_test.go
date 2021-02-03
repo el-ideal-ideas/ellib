@@ -52,4 +52,7 @@ func TestLIndex(t *testing.T) {
 	if res := LIndexFloat64(ToFloat64s(d), 3); res != 5 {
 		t.Errorf("Invalid result: %v", res)
 	}
+	if res := LIndexBool(ToBools(d), false); res != -1 {
+		t.Errorf("Invalid result: %v", res)
+	}
 }

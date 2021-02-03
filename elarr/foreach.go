@@ -1,5 +1,7 @@
 package elarr
 
+var ForEach = ForEachInter
+
 // Call `f` for all item in `arr`
 func ForEachInter(arr []interface{}, f func(interface{})) {
 	for i := range arr {
@@ -107,6 +109,13 @@ func ForEachFloat32(arr []float32, f func(float32)) {
 
 // Call `f` for all item in `arr`
 func ForEachFloat64(arr []float64, f func(float64)) {
+	for i := range arr {
+		f(arr[i])
+	}
+}
+
+// Call `f` for all item in `arr`
+func ForEachBool(arr []bool, f func(bool)) {
 	for i := range arr {
 		f(arr[i])
 	}

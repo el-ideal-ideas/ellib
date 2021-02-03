@@ -83,4 +83,9 @@ func TestReverse(t *testing.T) {
 	if !IsSameFloat64(ToFloat64s(d16), []float64{3.0, 2.0, 1.0}) {
 		t.Errorf("Invalid result")
 	}
+	bo := []interface{}{true, true, false}
+	Reverse(bo)
+	if !IsSame(bo, []interface{}{false, true, true}) {
+		t.Errorf("Invalid result")
+	}
 }

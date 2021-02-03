@@ -52,4 +52,7 @@ func TestIndex(t *testing.T) {
 	if res := IndexFloat64(ToFloat64s(d), 3); res != 2 {
 		t.Errorf("Invalid result: %v", res)
 	}
+	if res := IndexBool(ToBools(d), false); res != -1 {
+		t.Errorf("Invalid result: %v", res)
+	}
 }

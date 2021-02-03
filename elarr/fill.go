@@ -1,5 +1,7 @@
 package elarr
 
+var Fill = FillInter
+
 // Fill target slice with given item.
 func FillInter(arr []interface{}, item interface{}) {
 	l := len(arr)
@@ -122,6 +124,14 @@ func FillFloat32(arr []float32, item float32) {
 
 // Fill target slice with given item.
 func FillFloat64(arr []float64, item float64) {
+	l := len(arr)
+	for i := 0; i < l; i++ {
+		arr[i] = item
+	}
+}
+
+// Fill target slice with given item.
+func FillBool(arr []bool, item bool) {
 	l := len(arr)
 	for i := 0; i < l; i++ {
 		arr[i] = item

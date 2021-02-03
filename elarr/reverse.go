@@ -150,3 +150,12 @@ func ReverseFloat64(s []float64) {
 		s[i], s[li] = s[li], s[i]
 	}
 }
+
+// Reverse slice
+func ReverseBool(s []bool) {
+	length := len(s)
+	for i := 0; i < length/2; i++ {
+		li := length - i - 1
+		s[i], s[li] = s[li], s[i]
+	}
+}

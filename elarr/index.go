@@ -195,3 +195,15 @@ func IndexFloat64(v []float64, item float64) int {
 	}
 	return -1
 }
+
+// Get the index of the first item that is same as the given `item` parameter.
+// If can't found same item, return -1.
+func IndexBool(v []bool, item bool) int {
+	l := len(v)
+	for i := 0; i < l; i++ {
+		if v[i] == item {
+			return i
+		}
+	}
+	return -1
+}

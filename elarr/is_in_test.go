@@ -99,4 +99,7 @@ func TestIsIn(t *testing.T) {
 	if InFloat64([]float64{1.0, 2.0, 3.0}, 0.0) {
 		t.Errorf("Invalid result")
 	}
+	if InBool([]bool{true, true}, false) {
+		t.Errorf("Invalid result")
+	}
 }

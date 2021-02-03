@@ -84,4 +84,13 @@ func TestForeach(t *testing.T) {
 	if f64 != 15 {
 		t.Errorf("Invalid result")
 	}
+	var bo int
+	ForEachBool(ToBools(d), func(v bool) {
+		if v {
+			bo += 1
+		}
+	})
+	if bo != 5 {
+		t.Errorf("Invalid result")
+	}
 }

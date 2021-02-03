@@ -48,6 +48,9 @@ func TestConvert(t *testing.T) {
 	if data := ToFloat64s([]interface{}{float64(1), float64(2), float64(3)}); !IsSameFloat64(data, []float64{1, 2, 3}) {
 		t.Errorf("Invalid result")
 	}
+	if data := ToBools([]interface{}{true, false, true}); !IsSameBool(data, []bool{true, false, true}) {
+		t.Errorf("Invalid result")
+	}
 	if data := IntsToStrings([]int{1, 2, 3}); !IsSameStr(data, []string{"1", "2", "3"}) {
 		t.Errorf("Invalid result")
 	}

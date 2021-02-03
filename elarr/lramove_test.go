@@ -83,4 +83,9 @@ func TestLRemove(t *testing.T) {
 	if !IsSame(f64, []float64{1, 3, 2, 4}) {
 		t.Errorf("Invalid result")
 	}
+	bo := []bool{true, true, false, true}
+	bo = LRemoveBool(bo, false)
+	if !IsSame(bo, []bool{true, true, true}) {
+		t.Errorf("Invalid result")
+	}
 }

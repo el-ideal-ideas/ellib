@@ -195,3 +195,15 @@ func LIndexFloat64(v []float64, item float64) int {
 	}
 	return -1
 }
+
+// Get the index of the last item that is same as the given `item` parameter.
+// If can't found same item, return -1.
+func LIndexBool(v []bool, item bool) int {
+	l := len(v)
+	for i := l - 1; i >= 0; i-- {
+		if v[i] == item {
+			return i
+		}
+	}
+	return -1
+}

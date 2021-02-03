@@ -99,4 +99,10 @@ func TestIsSame(t *testing.T) {
 	if IsSameFloat64([]float64{0.0, 2.0, 3.0}, []float64{1.0, 2.0, 3.0}, []float64{1.0, 2.0, 3.0}) {
 		t.Errorf("Invalid result")
 	}
+	if !IsSameBool([]bool{true, true, true}, []bool{true, true, true}) {
+		t.Errorf("Invalid result")
+	}
+	if IsSameBool([]bool{true, false, true}, []bool{true, true, true}) {
+		t.Errorf("Invalid result")
+	}
 }

@@ -103,4 +103,9 @@ func TestInsert(t *testing.T) {
 	if !IsSame(f64, []float64{1, 2, 2, 3}) {
 		t.Errorf("Invalid result: %v", f64)
 	}
+	bo := []bool{true, true, true}
+	bo = InsertBool(bo, 2, false)
+	if !IsSame(bo, []bool{true, true, false, true}) {
+		t.Errorf("Invalid result: %v", bo)
+	}
 }

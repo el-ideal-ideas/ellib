@@ -142,6 +142,15 @@ func ToFloat64s(arr []interface{}) []float64 {
 	return res
 }
 
+// convert slice data.
+func ToBools(arr []interface{}) []bool {
+	res := make([]bool, len(arr))
+	for i, v := range arr {
+		res[i] = elconv.AsBool(v)
+	}
+	return res
+}
+
 // convert []int to []string.
 func IntsToStrings(arr []int) []string {
 	res := make([]string, len(arr))
