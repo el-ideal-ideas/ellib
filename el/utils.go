@@ -2,6 +2,10 @@ package el
 
 import "github.com/el-ideal-ideas/ellib/elref"
 
+var IsNil = elref.IsNil
+var Type = elref.Type
+var IsEmpty = elref.IsEmpty
+
 // IF evaluates a condition, if true returns the first parameter otherwise the second
 func IF(condition bool, first interface{}, second interface{}) interface{} {
 	if condition {
