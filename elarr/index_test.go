@@ -3,7 +3,7 @@ package elarr
 import "testing"
 
 func TestIndex(t *testing.T) {
-	d := []interface{}{1, 2, 3, 4, 5}
+	d := []interface{}{1, 2, 3, 4, 5, 3, 4, 5, 7}
 	if res := IndexInter(d, 3); res != 2 {
 		t.Errorf("Invalid result: %v", res)
 	}

@@ -315,6 +315,29 @@ elarr.IndexFloat64(v []float64, item float64) int
 
 // ----------------------------------------------------------------------------
 
+// 获取指定数据最后出现的位置的索引
+// get the last index of target itme.
+// 指定要素が最後に現れる場所のインデックスを取得
+elarr.LIndex(v []interface{}, item interface{}) int
+elarr.LIndexInter(v []interface{}, item interface{}) int
+elarr.LIndexStr(v []string, item string) int
+elarr.LIndexInt(v []int, item int) int
+elarr.LIndexInt8(v []int8, item int8) int
+elarr.LIndexInt16(v []int16, item int16) int
+elarr.LIndexInt32(v []int32, item int32) int
+elarr.LIndexInt64(v []int64, item int64) int
+elarr.LIndexUint(v []uint, item uint) int
+elarr.LIndexUint8(v []uint8, item uint8) int
+elarr.LIndexUint16(v []uint16, item uint16) int
+elarr.LIndexUint32(v []uint32, item uint32) int
+elarr.LIndexUint64(v []uint64, item uint64) int
+elarr.LIndexRune(v []rune, item rune) int
+elarr.LIndexByte(v []byte, item byte) int
+elarr.LIndexFloat32(v []float32, item float32) int
+elarr.LIndexFloat64(v []float64, item float64) int
+
+// ----------------------------------------------------------------------------
+
 // 其他函数
 // other functions
 // その他
