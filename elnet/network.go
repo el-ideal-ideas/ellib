@@ -2,7 +2,9 @@ package elnet
 
 import (
 	"encoding/binary"
+	"io/ioutil"
 	"net"
+	"net/http"
 	"os"
 	"regexp"
 	"strconv"
@@ -205,4 +207,71 @@ func Long2Ip(properAddress uint32) string {
 	binary.BigEndian.PutUint32(ipByte, properAddress)
 	ip := net.IP(ipByte)
 	return ip.String()
+}
+
+// Get text from target url, If some error occurred, return empty string.
+func getTextFromUrl(url string) string {
+	resp, err := http.Get(url)
+	if err != nil {
+		return ""
+	} else {
+		defer resp.Body.Close()
+		if b, err := ioutil.ReadAll(resp.Body); err != nil {
+			return ""
+		} else {
+			return string(b)
+		}
+	}
+}
+
+// Try get the public IPv4 address of this machine.
+// If some error occurred, return empty string.
+func GetMyPublicIPv4() string {
+	if res := getTextFromUrl("https://inet-ip.info/ip"); res != "" && len(res) <= 15 && IsValidIP(res) {
+		return res
+	} else if res = getTextFromUrl("https://api.ipify.org/"); res != "" && len(res) <= 15 && IsValidIP(res) {
+		return res
+	} else {
+		res = getTextFromUrl("http://checkip.dyndns.com/")
+		if res == "" {
+			return ""
+		}
+		info := strings.Split(res, ":")
+		if len(info) != 2 {
+			return ""
+		}
+		res = strings.TrimSpace(info[1])
+		res = strings.TrimRight(res, "</body></html>\r\n")
+		if IsValidIP(res) {
+			return res
+		} else {
+			return ""
+		}
+	}
+}
+
+// Try get the public IPv6 address of this machine.
+// If some error occurred, return empty string.
+func GetMyPublicIPv6() string {
+	if res := getTextFromUrl("https://ident.me"); len(res) >= 16 && IsValidIP(res) {
+		return res
+	} else if res = getTextFromUrl("https://icanhazip.com"); len(res) >= 16 && IsValidIP(res) {
+		return res
+	} else if res = getTextFromUrl("https://www.trackip.net/ip"); len(res) >= 16 && IsValidIP(res) {
+		return res
+	} else {
+		return ""
+	}
+}
+
+// Try get the public IP address of this machine.
+// If some error occurred, return empty string.
+func GetMyPublicIP() string {
+	if res := GetMyPublicIPv4(); res != "" {
+		return res
+	} else if res = GetMyPublicIPv6(); res != "" {
+		return res
+	} else {
+		return ""
+	}
 }
