@@ -197,3 +197,12 @@ func CopyFile(source, dest string) (bool, error) {
 	}
 	return true, nil
 }
+
+// Get the size of file as byte.
+func FileSize(filename string) (int64, error) {
+	info, err := os.Stat(filename)
+	if err != nil && os.IsNotExist(err) {
+		return 0, err
+	}
+	return info.Size(), nil
+}
