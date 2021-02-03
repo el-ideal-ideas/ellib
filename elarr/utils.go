@@ -25,6 +25,50 @@ func SumInt(v []int) int {
 	return sum
 }
 
+// Max of numbers in `v`
+func Max(v []interface{}) float64 {
+	var max = elconv.AsFloat64(v[0])
+	for i := 1; i < len(v); i++ {
+		if t := elconv.AsFloat64(v[i]); max < t {
+			max = t
+		}
+	}
+	return max
+}
+
+// Max of numbers in `v`
+func MaxInt(v []int) int {
+	var max = v[0]
+	for i := 1; i < len(v); i++ {
+		if max < v[i] {
+			max = v[i]
+		}
+	}
+	return max
+}
+
+// Min of numbers in `v`
+func Min(v []interface{}) float64 {
+	var min = elconv.AsFloat64(v[0])
+	for i := 1; i < len(v); i++ {
+		if t := elconv.AsFloat64(v[i]); min > t {
+			min = t
+		}
+	}
+	return min
+}
+
+// Min of numbers in `v`
+func MinInt(v []int) int {
+	var min = v[0]
+	for i := 1; i < len(v); i++ {
+		if min > v[i] {
+			min = v[i]
+		}
+	}
+	return min
+}
+
 // Average of numbers in `v`
 func Average(v []interface{}) float64 {
 	return Sum(v) / float64(len(v))

@@ -401,6 +401,22 @@ elarr.LRemoveBool(v []bool, item bool) (newPtr []bool)
 
 // ----------------------------------------------------------------------------
 
+// 生成指定区间内的数组
+// 指定区域内の配列を生成
+// create a list of range between lower and upper
+elarr.RangeInt(lower, higher int, hops ...int) []int
+elarr.RangeInt64(lower, higher int64, hops ...int64) []int64
+elarr.RangeInt32(lower, higher int32, hops ...int32) []int32
+elarr.RangeInt16(lower, higher int16, hops ...int16) []int16
+elarr.RangeInt8(lower, higher int8, hops ...int8) []int8
+elarr.RangeUint(lower, higher uint, hops ...uint) []uint
+elarr.RangeUint64(lower, higher uint64, hops ...uint64) []uint64
+elarr.RangeUint32(lower, higher uint32, hops ...uint32) []uint32
+elarr.RangeUint16(lower, higher uint16, hops ...uint16) []uint16
+elarr.RangeUint8(lower, higher uint8, hops ...uint8) []uint8
+
+// ----------------------------------------------------------------------------
+
 // 其他函数
 // other functions
 // その他
@@ -411,4 +427,8 @@ elarr.Insert(v []interface{}, index int, value interface{}) (newPtr []interface{
 elarr.Join(v []interface{}, sep string) string
 elarr.IsEmpty(v interface{}) bool
 elarr.Shuffle(arr []interface{})
+elarr.Min(v []interface{}) float64
+elarr.MinInt(v []int) int
+elarr.Max(v []interface{}) float64
+elarr.MaxInt(v []int) int
 ```

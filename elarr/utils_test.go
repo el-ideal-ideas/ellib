@@ -21,4 +21,16 @@ func TestUtils(t *testing.T) {
 	if !IsEmpty([]interface{}{}) {
 		t.Errorf("Invalid result")
 	}
+	if Max([]interface{}{1, 2, 3, 5, 2}) != 5 {
+		t.Errorf("Invalid result")
+	}
+	if MaxInt([]int{1, 2, 3, 5, 2}) != 5 {
+		t.Errorf("Invalid result")
+	}
+	if Min([]interface{}{1, 2, 3, 5, 2}) != 1 {
+		t.Errorf("Invalid result")
+	}
+	if MinInt([]int{1, 2, 3, 5, 2}) != 1 {
+		t.Errorf("Invalid result")
+	}
 }
