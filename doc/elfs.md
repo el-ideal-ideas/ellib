@@ -19,6 +19,7 @@ elfs.ParentDir(path string) (string, error)
 elfs.GetFileExt(filename string) string
 elfs.Home() string
 elfs.SetHome(s string) error
+elfs.CopyFile(source, dest string) (bool, error)
 
 // elfs 包含了 path/filepath 的全部函数
 // elfs contain alias of path/filepath
