@@ -2,6 +2,7 @@ package elarr
 
 import (
 	"github.com/el-ideal-ideas/ellib/elconv"
+	"github.com/el-ideal-ideas/ellib/elrand"
 	"github.com/el-ideal-ideas/ellib/elstr"
 	"reflect"
 )
@@ -35,11 +36,14 @@ func Join(v []interface{}, sep string) string {
 }
 
 // If `v` is a empty slice or array, return true. Otherwise, return false.
+// If `v` is not a slice or array, return true.
 func IsEmpty(v interface{}) bool {
 	val := reflect.ValueOf(v)
 	if val.Kind() == reflect.Array || val.Kind() == reflect.Slice {
 		return val.Len() == 0
 	} else {
-		return false
+		return true
 	}
 }
+
+var Shuffle = elrand.Shuffle

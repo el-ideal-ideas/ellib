@@ -370,4 +370,5 @@ elarr.Average(v []interface{}) float64
 elarr.Insert(v []interface{}, index int, value interface{}) (newPtr []interface{})
 elarr.Join(v []interface{}, sep string) string
 elarr.IsEmpty(v interface{}) bool
+elarr.Shuffle(arr []interface{})
 ```
