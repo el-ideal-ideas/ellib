@@ -338,6 +338,29 @@ elarr.LIndexFloat64(v []float64, item float64) int
 
 // ----------------------------------------------------------------------------
 
+// 从切片删除第一个和指定内容一致的数据
+// remove the first element that is same as the given item
+// スライスから最初に与えられたデータと等価の要素を削除する
+elarr.Remove(v []interface{}, item interface{}) (newPtr []interface{})
+elarr.RemoveInter(v []interface{}, item interface{}) (newPtr []interface{})
+elarr.RemoveStr(v []string, item string) (newPtr []string)
+elarr.RemoveInt(v []int, item int) (newPtr []int)
+elarr.RemoveInt8(v []int8, item int8) (newPtr []int8)
+elarr.RemoveInt16(v []int16, item int16) (newPtr []int16)
+elarr.RemoveInt32(v []int32, item int32) (newPtr []int32)
+elarr.RemoveInt64(v []int64, item int64) (newPtr []int64)
+elarr.RemoveUint(v []uint, item uint) (newPtr []uint)
+elarr.RemoveUint8(v []uint8, item uint8) (newPtr []uint8)
+elarr.RemoveUint16(v []uint16, item uint16) (newPtr []uint16)
+elarr.RemoveUint32(v []uint32, item uint32) (newPtr []uint32)
+elarr.RemoveUint64(v []uint64, item uint64) (newPtr []uint64)
+elarr.RemoveRune(v []rune, item rune) (newPtr []rune)
+elarr.RemoveRune(v []rune, item rune) (newPtr []rune)
+elarr.RemoveFloat32(v []float32, item float32) (newPtr []float32)
+elarr.RemoveFloat64(v []float64, item float64) (newPtr []float64)
+
+// ----------------------------------------------------------------------------
+
 // 其他函数
 // other functions
 // その他
