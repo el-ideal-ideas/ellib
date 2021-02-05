@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/el-ideal-ideas/ellib/elconv"
 	"reflect"
+	"strings"
 )
 
 // Flip key and value in the map.
@@ -58,7 +59,7 @@ func KeysAsString(m interface{}) []string {
 
 // Get all values in the map
 // If `m` is not a map that will cause panic.
-func GetMapValues(m interface{}) []interface{} {
+func Values(m interface{}) []interface{} {
 	var res []interface{}
 	var item interface{}
 	val := reflect.ValueOf(m)
@@ -70,6 +71,26 @@ func GetMapValues(m interface{}) []interface{} {
 		}
 	default:
 		panic("[GetMapValues]m type must be map")
+	}
+	return res
+}
+
+// KeysToLower convert keys to lower case.
+func KeysToLower(m map[string]interface{}) map[string]interface{} {
+	res := make(map[string]interface{}, len(m))
+	for k, v := range m {
+		k = strings.ToLower(k)
+		res[k] = v
+	}
+	return res
+}
+
+// KeysToUpper convert keys to upper case.
+func KeysToUpper(m map[string]interface{}) map[string]interface{} {
+	res := make(map[string]interface{}, len(m))
+	for k, v := range m {
+		k = strings.ToUpper(k)
+		res[k] = v
 	}
 	return res
 }

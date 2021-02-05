@@ -29,7 +29,17 @@ elmap.MapFlip(m interface{}) map[interface{}]interface{}
 // 获取map的全部值
 // get all values in the map
 // mapの値を全部取得する
-elmap.GetMapValues(m interface{}) []interface{}
+elmap.Values(m interface{}) []interface{}
+
+// 把所有的key转换成小写
+// convert keys to lower
+// 全てのキーを小文字に変換
+elmap.KeysToLower(m map[string]interface{}) map[string]interface{}
+
+// 把所有的key转换成大写
+// convert keys to upper
+// 全てのキーを大文字に変換
+elmap.KeysToUpper(m map[string]interface{}) map[string]interface{}
 
 // 获取map的全部key
 // get all keys in the map
