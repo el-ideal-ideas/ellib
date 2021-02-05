@@ -13,4 +13,6 @@ elconv.AsInt64(v interface{}) int64
 elconv.AsStr(v interface{}) string
 elconv.AsUint(v interface{}) uint
 elconv.AsUint64(v interface{}) uint64
+elconv.AsValue(v interface{}) interface{}
+elconv.AsValueRef(r reflect.Value) reflect.Value
 ```

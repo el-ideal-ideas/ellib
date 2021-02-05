@@ -1,9 +1,16 @@
 package elconv
 
-import "strconv"
+import (
+	"reflect"
+	"strconv"
+)
 
 // convert value to float64
 func AsFloat64(v interface{}) (res float64) {
+	if v == nil {
+		return 0
+	}
+	v = AsValueRef(reflect.ValueOf(v)).Interface()
 	switch v.(type) {
 	case int:
 		res = float64(v.(int))

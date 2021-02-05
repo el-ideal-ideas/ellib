@@ -1,4 +1,4 @@
-// This module contains some helper functions for string data.
+// Copy from https://github.com/thinkeridea/go-extend
 
 package elstr
 

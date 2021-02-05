@@ -32,3 +32,8 @@ issue & pull-request 大歓迎
 - [elsys](https://github.com/el-ideal-ideas/ellib/blob/master/doc/elsys.md) utilities for system.
 - [eltengo](https://github.com/el-ideal-ideas/ellib/blob/master/doc/eltengo.md) utilities for tengo script.
 - [elutils](https://github.com/el-ideal-ideas/ellib/blob/master/doc/elutils.md) some common utilities.
+
+### Links (Some source code from following projects)
+- https://github.com/huandu/xstrings
+- https://github.com/thinkeridea/go-extend
+- https://github.com/gookit/goutil

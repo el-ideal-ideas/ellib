@@ -1,9 +1,16 @@
 package elconv
 
-import "strconv"
+import (
+	"reflect"
+	"strconv"
+)
 
 // convert value to int
 func AsInt(v interface{}) int {
+	if v == nil {
+		return 0
+	}
+	v = AsValueRef(reflect.ValueOf(v)).Interface()
 	switch v.(type) {
 	case int:
 		return v.(int)

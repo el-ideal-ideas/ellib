@@ -2,6 +2,7 @@ package elstr
 
 import (
 	"errors"
+	"reflect"
 	"strconv"
 )
 
@@ -10,18 +11,21 @@ var (
 )
 
 // MustString convert value to string
-func MustString(in interface{}) string {
-	val, _ := ToString(in)
+func MustString(v interface{}) string {
+	val, _ := ToString(v)
 	return val
 }
 
 // ToString convert value to string
-func ToString(val interface{}) (str string, err error) {
-	if val == nil {
+func ToString(v interface{}) (str string, err error) {
+	if v == nil {
 		return
 	}
-
-	switch value := val.(type) {
+	r := reflect.ValueOf(v)
+	if r.Kind() == reflect.Ptr {
+		v = r.Elem().Interface()
+	}
+	switch value := v.(type) {
 	case int:
 		str = strconv.Itoa(value)
 	case int8:

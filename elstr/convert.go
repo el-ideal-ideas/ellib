@@ -1,3 +1,5 @@
+// Copy from https://github.com/thinkeridea/go-extend
+
 // UnsafeToBytes is the fastest way to convert string to []byte, but this function is unsafe.
 // []byte() < ToBytes() <<<<< UnsafeToBytes()
 // BenchmarkDefaultToBytes-8        7494451               156 ns/op             768 B/op          1 allocs/op

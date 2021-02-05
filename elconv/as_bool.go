@@ -1,9 +1,16 @@
 package elconv
 
-import "strconv"
+import (
+	"reflect"
+	"strconv"
+)
 
 // convert value to boolean
 func AsBool(v interface{}) bool {
+	if v == nil {
+		return false
+	}
+	v = AsValueRef(reflect.ValueOf(v)).Interface()
 	switch v.(type) {
 	case int:
 		return v.(int) > 0

@@ -1,9 +1,8 @@
-// an alias of strings package.
+#### elstr包含官方strings包的全部函数 (为了性能优化一部分函数用了其他的实现方式)
+#### elstr contains all functions in official strings package (some functions use different source code for performance)
+#### elstrパブリックは公式のstringsパッケージの全部の関数を含んでいます (一部の関数は性能向上のため、異なる実装になっています)
 
-package elstr
-
-import "strings"
-
+```go
 type Builder strings.Builder
 type Reader strings.Reader
 type Replacer strings.Replacer
@@ -55,3 +54,4 @@ var SReplace = strings.Replace
 var ReplaceAll = strings.ReplaceAll
 var EqualFold = strings.EqualFold
 var Index = strings.Index
+```

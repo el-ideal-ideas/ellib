@@ -1,9 +1,16 @@
 package elconv
 
-import "strconv"
+import (
+	"reflect"
+	"strconv"
+)
 
 // convert value to uint
 func AsUint(v interface{}) uint {
+	if v == nil {
+		return 0
+	}
+	v = AsValueRef(reflect.ValueOf(v)).Interface()
 	switch v.(type) {
 	case int, int8, int16, int32, int64, float32, float64:
 		if AsFloat64(v) <= 0 {
