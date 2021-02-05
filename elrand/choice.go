@@ -216,3 +216,15 @@ func ChoiceFloat64(data []float64, count int) []float64 {
 	}
 	return res
 }
+
+// Choice some random item from data.
+func ChoiceBool(data []bool, count int) []bool {
+	if count < 0 {
+		return []bool{}
+	}
+	res := make([]bool, 0, count)
+	for i := 0; i < count; i++ {
+		res = append(res, data[RandomInt(0, len(data))])
+	}
+	return res
+}
