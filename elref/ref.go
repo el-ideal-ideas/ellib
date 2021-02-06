@@ -45,7 +45,7 @@ func IsEmpty(v interface{}) bool {
 }
 
 // If `needle` is in `haystack` return true.
-// supports array, slice and map.
+// supports array, slice, struct and map.
 func IsIn(needle interface{}, haystack interface{}) bool {
 	val := reflect.ValueOf(haystack)
 	switch val.Kind() {
@@ -61,8 +61,15 @@ func IsIn(needle interface{}, haystack interface{}) bool {
 				return true
 			}
 		}
+	case reflect.Struct:
+		t := val.Type()
+		for i := 0; i < t.NumField(); i++ {
+			if reflect.DeepEqual(needle, t.Field(i).Name) {
+				return true
+			}
+		}
 	default:
-		panic("[IsIn]haystack type must be array, slice or map")
+		panic("[IsIn]haystack type must be array, slice, struct or map")
 	}
 	return false
 }
@@ -70,4 +77,31 @@ func IsIn(needle interface{}, haystack interface{}) bool {
 // Returns a string of variable type
 func Type(v interface{}) string {
 	return reflect.TypeOf(v).String()
+}
+
+// Get fields in struct.
+func GetStructFields(v interface{}) []string {
+	if !IsStruct(v) {
+		panic("[GetStructFields] v must be a struct")
+	}
+	t := reflect.ValueOf(v).Type()
+	res := make([]string, t.NumField())
+	for i := 0; i < t.NumField(); i++ {
+		res[i] = t.Field(i).Name
+	}
+	return res
+}
+
+// Get values in struct.
+func GetStructValues(v interface{}) []interface{} {
+	if !IsStruct(v) {
+		panic("[GetStructValues] v must be a struct")
+	}
+	r := reflect.ValueOf(v)
+	t := r.Type()
+	res := make([]interface{}, t.NumField())
+	for i := 0; i < t.NumField(); i++ {
+		res[i] = r.Field(i).Interface()
+	}
+	return res
 }

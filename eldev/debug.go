@@ -59,7 +59,9 @@ func GetPkgName() string {
 // PanicIfErr if error is not empty
 func PanicIfErr(err error) {
 	if err != nil {
-		panic(err)
+		pc, _, line, _ := runtime.Caller(2)
+		name := runtime.FuncForPC(pc).Name()
+		panic(fmt.Sprintf("[Panic: <%d - %s>] %s", line, name, err))
 	}
 }
 

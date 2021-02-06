@@ -163,3 +163,18 @@ func IsUnsafePointer(v interface{}) bool {
 	r := elconv.AsValueRef(reflect.ValueOf(v))
 	return r.Kind() == reflect.UnsafePointer
 }
+
+// If `v` is a number, return true. Otherwise return false.
+func IsNumber(v interface{}) bool {
+	r := elconv.AsValueRef(reflect.ValueOf(v))
+	switch r.Kind() {
+	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
+		return true
+	case reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64:
+		return true
+	case reflect.Float32, reflect.Float64:
+		return true
+	default:
+		return false
+	}
+}

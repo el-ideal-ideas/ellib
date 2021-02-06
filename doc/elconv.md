@@ -15,4 +15,7 @@ elconv.AsUint(v interface{}) uint
 elconv.AsUint64(v interface{}) uint64
 elconv.AsValue(v interface{}) interface{}
 elconv.AsValueRef(r reflect.Value) reflect.Value
+elconv.AsPtr(v interface{}) uintptr
+elconv.AsPtrRef(r reflect.Value) uintptr
+elconv.AsSlice(v interface{}) []interface{}
 ```

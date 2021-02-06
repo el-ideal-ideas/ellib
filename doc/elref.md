@@ -17,13 +17,23 @@ elref.IsEmpty(v interface{}) bool
 
 // 对array，slice，map，检测对象数据（或者是map的key）是否存在
 // if `needle` is in `haystack` return true. supports array, slice and map.
-// array, slice, map に指定の要素またはキーが存在するかを確認する
+// array, slice, struct, map に指定の要素またはキーが存在するかを確認する
 elref.IsIn(needle interface{}, haystack interface{}) bool
 
 // 获取对象类型
 // get the type of target value
 // 指定の値のデータ型を取得
 elref.Type(v interface{}) string
+
+// 获取结构体的全部领域
+// get all fields in struct
+// 構造体の全てのフィールドを取得
+elref.GetStructFields(v interface{}) []string
+
+// 获取结构体的全部值
+// get all values in struct
+// 構造体の全ての値を取得
+elref.GetStructValues(v interface{}) []interface{}
 
 // 检测对象类型
 // check the data type
@@ -55,5 +65,5 @@ elref.IsFunc(v interface{}) bool
 elref.IsPtr(v interface{}) bool
 elref.IsString(v interface{}) bool
 elref.IsUnsafePointer(v interface{})
-
+elref.IsNumber(v interface{}) bool
 ```

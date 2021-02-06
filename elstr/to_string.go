@@ -2,6 +2,7 @@ package elstr
 
 import (
 	"errors"
+	"github.com/el-ideal-ideas/ellib/eljson"
 	"reflect"
 	"strconv"
 )
@@ -24,6 +25,10 @@ func ToString(v interface{}) (str string, err error) {
 	r := reflect.ValueOf(v)
 	if r.Kind() == reflect.Ptr {
 		v = r.Elem().Interface()
+	}
+	switch r.Kind() {
+	case reflect.Slice, reflect.Array, reflect.Struct, reflect.Map:
+		return eljson.MarshalToString(v)
 	}
 	switch value := v.(type) {
 	case int:

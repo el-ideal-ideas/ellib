@@ -1,6 +1,7 @@
 package elconv
 
 import (
+	"github.com/el-ideal-ideas/ellib/elref"
 	"reflect"
 	"strconv"
 )
@@ -41,18 +42,24 @@ func AsBool(v interface{}) bool {
 		if err == nil {
 			return b
 		} else {
-			return false
+			return len(v.([]uint8)) != 0
 		}
 	case string:
 		b, err := strconv.ParseBool(v.(string))
 		if err == nil {
 			return b
 		} else {
-			return false
+			return len(v.(string)) != 0
 		}
 	case bool:
 		return v.(bool)
 	default:
-		return false
+		if elref.IsNil(v) {
+			return false
+		} else if elref.IsEmpty(v) {
+			return false
+		} else {
+			return true
+		}
 	}
 }
