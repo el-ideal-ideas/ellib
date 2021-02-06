@@ -171,7 +171,7 @@ func ParentDir(path string) (string, error) {
 
 // Get filename extension
 func GetFileExt(filename string) string {
-	s := elstr.SSplit(filename, ".")
+	s := elstr.Split(filename, ".")
 	if len(s) >= 2 {
 		return s[len(s)-1]
 	} else {

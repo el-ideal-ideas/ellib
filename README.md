@@ -34,6 +34,6 @@ issue & pull-request 大歓迎
 - [elutils](https://github.com/el-ideal-ideas/ellib/blob/master/doc/elutils.md) some common utilities.
 
 ### Links (Some source code from following projects)
-- https://github.com/huandu/xstrings
-- https://github.com/thinkeridea/go-extend
-- https://github.com/gookit/goutil
+- https://github.com/huandu/xstrings (MIT licensed)
+- https://github.com/thinkeridea/go-extend (MIT licensed)
+- https://github.com/gookit/goutil (MIT licensed)
