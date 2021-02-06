@@ -61,6 +61,8 @@ func ToString(v interface{}) (str string, err error) {
 		str = value
 	case []byte:
 		str = string(value)
+	case error:
+		str = "error"
 	default:
 		err = ErrConvertFail
 	}

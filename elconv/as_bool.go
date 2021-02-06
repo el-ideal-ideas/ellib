@@ -53,6 +53,8 @@ func AsBool(v interface{}) bool {
 		}
 	case bool:
 		return v.(bool)
+	case error:
+		return false
 	default:
 		if elref.IsNil(v) {
 			return false

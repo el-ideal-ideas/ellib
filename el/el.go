@@ -3,6 +3,7 @@ package el
 import (
 	"github.com/el-ideal-ideas/ellib/elconv"
 	"github.com/el-ideal-ideas/ellib/eldev"
+	"github.com/el-ideal-ideas/ellib/elenv"
 	"github.com/el-ideal-ideas/ellib/elref"
 )
 
@@ -56,6 +57,47 @@ var StructFields = elref.GetStructFields
 var StructValues = elref.GetStructValues
 
 var PanicIfErr = eldev.PanicIfErr
+
+var Assert func(expression interface{}, msg ...string)
+
+func init() {
+	if Bool(elenv.GetEnv("EL_ASSERT", "false")) {
+		// If `expression` is true, do nothing.
+		// If `expression` is false, cause panic.
+		// If `expression` is nil or an empty value, cause panic.
+		Assert = func(expression interface{}, msg ...string) {
+			if expression == nil {
+				if len(msg) > 0 {
+					panic("[Assert-A] " + msg[0])
+				} else {
+					panic("[Assert-A] Some unknown error occurred.")
+				}
+			}
+			switch expression.(type) {
+			case bool:
+				if !expression.(bool) {
+					if len(msg) > 0 {
+						panic("[Assert-B] " + msg[0])
+					} else {
+						panic("[Assert-B] Some unknown error occurred.")
+					}
+				}
+			default:
+				if IsNil(expression) || IsEmpty(expression) {
+					if len(msg) > 0 {
+						panic("[Assert-C] " + msg[0])
+					} else {
+						panic("[Assert-C] Some unknown error occurred.")
+					}
+				}
+			}
+		}
+	} else {
+		Assert = func(expression interface{}, msg ...string) {
+			// do nothing.
+		}
+	}
+}
 
 // IF evaluates a condition, if true returns the first parameter otherwise the second
 func IF(condition bool, first interface{}, second interface{}) interface{} {
