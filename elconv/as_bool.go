@@ -1,7 +1,6 @@
 package elconv
 
 import (
-	"github.com/el-ideal-ideas/ellib/elref"
 	"reflect"
 	"strconv"
 )
@@ -11,7 +10,8 @@ func AsBool(v interface{}) bool {
 	if v == nil {
 		return false
 	}
-	v = AsValueRef(reflect.ValueOf(v)).Interface()
+	r := reflect.ValueOf(v)
+	v = AsValueRef(r).Interface()
 	switch v.(type) {
 	case int:
 		return v.(int) > 0
@@ -56,12 +56,15 @@ func AsBool(v interface{}) bool {
 	case error:
 		return false
 	default:
-		if elref.IsNil(v) {
-			return false
-		} else if elref.IsEmpty(v) {
-			return false
-		} else {
-			return true
+		// check nil and empty value
+		switch r.Kind() {
+		case reflect.Array:
+			return r.Len() != 0
+		case reflect.Map, reflect.Slice:
+			return !(r.IsNil() || r.Len() == 0)
+		case reflect.Interface, reflect.Ptr, reflect.Chan, reflect.Func:
+			return !r.IsNil()
 		}
+		return !reflect.DeepEqual(v, reflect.Zero(r.Type()).Interface())
 	}
 }
