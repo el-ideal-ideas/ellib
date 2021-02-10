@@ -34,6 +34,8 @@ type SyncFile struct {
 	wg sync.WaitGroup
 	// This is a function to customize reload process.
 	reloadFunc func(*SyncFile)
+	// for multiple goroutines
+	lock sync.Mutex
 }
 
 // Commands for loop-goroutine
@@ -126,6 +128,7 @@ func (s *SyncFile) RunCommand(cmd command) {
 
 // Reload the file manually.
 func (s *SyncFile) Reload() error {
+	s.lock.Lock()
 	if info, err := os.Stat(s.filename); err != nil {
 		s.err = err
 		return err
@@ -137,22 +140,28 @@ func (s *SyncFile) Reload() error {
 		s.reloadFunc(s)
 		s.modTime = info.ModTime()
 	}
+	s.lock.Unlock()
 	return nil
 }
 
 // Apply changes to the file.
 func (s *SyncFile) Apply() error {
+	s.lock.Lock()
 	if err := ioutil.WriteFile(s.filename, s.contents, os.ModePerm); err != nil {
 		s.err = err
 		return err
 	}
+	s.lock.Unlock()
 	return nil
 }
 
 // Change the contents
 func (s *SyncFile) Change(new []byte) error {
+	s.lock.Lock()
 	s.contents = new
-	return s.Apply()
+	err := s.Apply()
+	s.lock.Unlock()
+	return err
 }
 
 // Stop goroutines and close channels.

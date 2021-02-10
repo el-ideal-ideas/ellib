@@ -38,6 +38,8 @@ type SyncStructController struct {
 	// listener
 	listener map[string]func(name string, old gjson.Result, new gjson.Result) error
 	oldData  map[string]gjson.Result
+	// for multiple goroutines
+	lock sync.Mutex
 }
 
 // Get filename
@@ -83,6 +85,7 @@ func (s *SyncStructController) syncGoroutine() {
 
 // Reload the file manually.
 func (s *SyncStructController) Reload() error {
+	s.lock.Lock()
 	if info, err := os.Stat(s.filename); err != nil {
 		s.err = err
 		return err
@@ -107,11 +110,14 @@ func (s *SyncStructController) Reload() error {
 			s.oldData[name] = res.Get(name)
 		}
 	}
+	s.lock.Unlock()
 	return nil
 }
 
 // Apply changes to file.
 func (s *SyncStructController) Apply() error {
+	s.lock.Lock()
+	defer s.lock.Unlock()
 	if data, err := json.MarshalIndent(s.structData, "", "\t"); err != nil {
 		return err
 	} else if err := ioutil.WriteFile(s.filename, data, 0644); err != nil {
