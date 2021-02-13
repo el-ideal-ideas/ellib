@@ -17,7 +17,6 @@ issue & pull-request 大歓迎
 - [elarr](https://github.com/el-ideal-ideas/ellib/blob/master/doc/elarr.md) utilities for array & slice.
 - [elconv](https://github.com/el-ideal-ideas/ellib/blob/master/doc/elconv.md) utilities for data convert.
 - [eldev](https://github.com/el-ideal-ideas/ellib/blob/master/doc/eldev.md) utilities for debug.
-- [eldump](https://github.com/el-ideal-ideas/ellib/blob/master/doc/eldump.md) utilities for dump data to debug.
 - [elenv](https://github.com/el-ideal-ideas/ellib/blob/master/doc/elenv.md) utilities for system environment.
 - [elfs](https://github.com/el-ideal-ideas/ellib/blob/master/doc/elfs.md) utilities for filesystem.
 - [elinfo](https://github.com/el-ideal-ideas/ellib/blob/master/doc/elinfo.md) information about this package.

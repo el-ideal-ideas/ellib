@@ -188,6 +188,16 @@ elstr.IsAllChineseChar(s string) bool
 // 回文であれば真を返す
 elstr.IsPalindrome(s string) bool
 
+// 获取最长的一致的部分
+// get the longest common substring of `s1` and `s2`.
+// 一番長い一致する部分を取得
+elstr.LCS(s1 string, s2 string) string
+
+// 如果字符串仅包含空格或者是一个空的字符串则返回true
+// returns true if a string with whitespace only was provided or an empty string
+// 文字列が空白のみを含むか、空の文字列であれば真を返す。
+elstr.IsEmpty(s string) bool
+
 // 尝试转换成字符串
 // try convert to string
 // 文字列への変換を試みる

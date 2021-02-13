@@ -194,3 +194,9 @@ func LCS(s1 string, s2 string) string {
 	}
 	return s1[xLongest-longest : xLongest]
 }
+
+// IsEmpty returns true if a string with whitespace only was provided or an
+// empty string
+func IsEmpty(s string) bool {
+	return strings.TrimSpace(s) == ""
+}
