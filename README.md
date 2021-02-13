@@ -1,4 +1,6 @@
 # go语言用的常用开发工具包
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fel-ideal-ideas%2Fellib.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fel-ideal-ideas%2Fellib?ref=badge_shield)
+
 关于每个功能的详细，请看源代码内的注释。
 如果有问题和建议欢迎issue和pull-request
 
@@ -36,3 +38,6 @@ issue & pull-request 大歓迎
 - https://github.com/huandu/xstrings (MIT licensed)
 - https://github.com/thinkeridea/go-extend (MIT licensed)
 - https://github.com/gookit/goutil (MIT licensed)
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fel-ideal-ideas%2Fellib.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fel-ideal-ideas%2Fellib?ref=badge_large)
