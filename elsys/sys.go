@@ -9,8 +9,9 @@ import (
 
 // Exit system with additional information.
 func Exit(code int, info string, err error) {
-	fmt.Printf("Info: %s \n Error: %v \n", info, err)
-	fmt.Printf("Exit<%d> \n", code)
+	fmt.Printf("Info: %s\n", info)
+	fmt.Printf("Error: %s\n", err)
+	fmt.Printf("ExitCode: %d\n", code)
 	syscall.Exit(code)
 }
 
