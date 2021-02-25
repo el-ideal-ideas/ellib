@@ -206,3 +206,16 @@ func FileSize(filename string) (int64, error) {
 	}
 	return info.Size(), nil
 }
+
+// Join File path list
+func JoinMulti(path string, items ...string) string {
+	if len(items) == 0 {
+		return path
+	} else {
+		res := path
+		for _, item := range items {
+			res = Join(res, item)
+		}
+		return res
+	}
+}
