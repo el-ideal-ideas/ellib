@@ -1,7 +1,6 @@
 package elsyncfile
 
 import (
-	"io/ioutil"
 	"os"
 	"testing"
 	"time"
@@ -99,7 +98,7 @@ func TestSyncJSON(t *testing.T) {
 		t.Errorf("The response must be [\"A\", \"B\", \"C\", \"D\"], but got %#v", d)
 	}
 	// --------
-	if err := ioutil.WriteFile(filename, []byte(`
+	if err := os.WriteFile(filename, []byte(`
 {
 	"key00": "value",
 	"key01": "もっちもっちにゃんにゃん!!!!!!!!!!",

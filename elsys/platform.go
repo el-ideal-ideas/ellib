@@ -1,7 +1,7 @@
 package elsys
 
 import (
-	"io/ioutil"
+	"os"
 	"runtime"
 	"strings"
 )
@@ -13,7 +13,7 @@ var isCentOS bool
 var isCentOS8 bool
 
 func init() {
-	if redhat, err := ioutil.ReadFile("/etc/redhat-release"); err == nil {
+	if redhat, err := os.ReadFile("/etc/redhat-release"); err == nil {
 		contents := string(redhat)
 		isRHEL = strings.HasPrefix(contents, "Red Hat Enterprise Linux release")
 		isRHEL8 = strings.HasPrefix(contents, "Red Hat Enterprise Linux release 8")

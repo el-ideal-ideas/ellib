@@ -11,7 +11,6 @@ import (
 	"github.com/el-ideal-ideas/ellib/elref"
 	jsoniter "github.com/json-iterator/go"
 	"github.com/tidwall/gjson"
-	"io/ioutil"
 	"os"
 	"sync"
 	"time"
@@ -89,7 +88,7 @@ func (s *SyncStructController) Reload() error {
 	if info, err := os.Stat(s.filename); err != nil {
 		s.err = err
 		return err
-	} else if contents, err := ioutil.ReadFile(s.filename); err != nil {
+	} else if contents, err := os.ReadFile(s.filename); err != nil {
 		s.err = err
 		return err
 	} else if contents != nil {
@@ -120,7 +119,7 @@ func (s *SyncStructController) Apply() error {
 	defer s.lock.Unlock()
 	if data, err := json.MarshalIndent(s.structData, "", "\t"); err != nil {
 		return err
-	} else if err := ioutil.WriteFile(s.filename, data, 0644); err != nil {
+	} else if err := os.WriteFile(s.filename, data, 0644); err != nil {
 		return err
 	} else {
 		return nil
@@ -170,13 +169,13 @@ func SyncStructWithJsonFile(structData interface{}, filename string, interval ti
 		return nil, err
 	}
 	_ = file.Close()
-	if data, err := ioutil.ReadFile(filename); err != nil {
+	if data, err := os.ReadFile(filename); err != nil {
 		return nil, err
 	} else if len(data) == 0 {
 		if jsonData, err := json.MarshalIndent(controller.structData, "", "\t"); err != nil {
 			return nil, err
 		} else {
-			if err := ioutil.WriteFile(filename, jsonData, 0644); err != nil {
+			if err := os.WriteFile(filename, jsonData, 0644); err != nil {
 				return nil, err
 			}
 		}

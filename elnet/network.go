@@ -2,7 +2,7 @@ package elnet
 
 import (
 	"encoding/binary"
-	"io/ioutil"
+	"io"
 	"net"
 	"net/http"
 	"os"
@@ -216,7 +216,7 @@ func getTextFromUrl(url string) string {
 		return ""
 	} else {
 		defer resp.Body.Close()
-		if b, err := ioutil.ReadAll(resp.Body); err != nil {
+		if b, err := io.ReadAll(resp.Body); err != nil {
 			return ""
 		} else {
 			return string(b)

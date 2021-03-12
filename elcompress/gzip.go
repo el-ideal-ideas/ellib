@@ -5,7 +5,7 @@ package elcompress
 import (
 	"bytes"
 	"compress/gzip"
-	"io/ioutil"
+	"io"
 )
 
 // Compress returns compressed bytes
@@ -38,7 +38,7 @@ func GzipDecompress(data []byte) ([]byte, error) {
 		return nil, err
 	}
 
-	decompressedBytes, err := ioutil.ReadAll(gzipReader)
+	decompressedBytes, err := io.ReadAll(gzipReader)
 	if err != nil {
 		return nil, err
 	}

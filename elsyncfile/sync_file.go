@@ -6,7 +6,6 @@
 package elsyncfile
 
 import (
-	"io/ioutil"
 	"os"
 	"sync"
 	"time"
@@ -132,7 +131,7 @@ func (s *SyncFile) Reload() error {
 	if info, err := os.Stat(s.filename); err != nil {
 		s.err = err
 		return err
-	} else if contents, err := ioutil.ReadFile(s.filename); err != nil {
+	} else if contents, err := os.ReadFile(s.filename); err != nil {
 		s.err = err
 		return err
 	} else if contents != nil {
@@ -147,7 +146,7 @@ func (s *SyncFile) Reload() error {
 // Apply changes to the file.
 func (s *SyncFile) Apply() error {
 	s.lock.Lock()
-	if err := ioutil.WriteFile(s.filename, s.contents, os.ModePerm); err != nil {
+	if err := os.WriteFile(s.filename, s.contents, os.ModePerm); err != nil {
 		s.err = err
 		return err
 	}

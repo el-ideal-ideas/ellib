@@ -1,7 +1,6 @@
 package elsyncfile
 
 import (
-	"io/ioutil"
 	"os"
 	"strings"
 	"testing"
@@ -36,7 +35,7 @@ func TestSyncStruct(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Can't create instance of SyncStructController, Error: %v", err)
 	}
-	if data, err := ioutil.ReadFile(filename); err != nil {
+	if data, err := os.ReadFile(filename); err != nil {
 		t.Errorf("Can't access to the file. Error: %v", err)
 	} else if string(data) != json {
 		t.Errorf("Invalid file contents.")
@@ -48,12 +47,12 @@ func TestSyncStruct(t *testing.T) {
 	if err := controller.Apply(); err != nil {
 		t.Errorf("Expected nil, got %v", err)
 	}
-	if data, err := ioutil.ReadFile(filename); err != nil {
+	if data, err := os.ReadFile(filename); err != nil {
 		t.Errorf("Can't access to the file. Error: %v", err)
 	} else if string(data) != strings.ReplaceAll(json, "18", "19") {
 		t.Errorf("Invalid file contents.")
 	}
-	if err := ioutil.WriteFile(filename, []byte(strings.ReplaceAll(json, "もずく", "もじゅく")), 0644); err != nil {
+	if err := os.WriteFile(filename, []byte(strings.ReplaceAll(json, "もずく", "もじゅく")), 0644); err != nil {
 		t.Errorf("Expected nil, got %v", err)
 	} else {
 		time.Sleep(time.Second)
@@ -61,7 +60,7 @@ func TestSyncStruct(t *testing.T) {
 			t.Errorf("structData.Name must be \"もじゅく\"")
 		}
 	}
-	if err := ioutil.WriteFile(filename, []byte(strings.ReplaceAll(json, "4", "5")), 0644); err != nil {
+	if err := os.WriteFile(filename, []byte(strings.ReplaceAll(json, "4", "5")), 0644); err != nil {
 		t.Errorf("Expected nil, got %v", err)
 	} else {
 		time.Sleep(time.Second)

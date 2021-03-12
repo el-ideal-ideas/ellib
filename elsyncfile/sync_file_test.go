@@ -2,7 +2,6 @@ package elsyncfile
 
 import (
 	"bytes"
-	"io/ioutil"
 	"os"
 	"testing"
 	"time"
@@ -56,13 +55,13 @@ func TestSyncFile(t *testing.T) {
 	if syncFile.GetString() != "もっちもっちにゃんにゃん" {
 		t.Errorf("GetString() must be \"もっちもっちにゃんにゃん\".")
 	}
-	if data, err := ioutil.ReadFile(filename); err != nil {
+	if data, err := os.ReadFile(filename); err != nil {
 		t.Errorf("Expected nil, got %v", err)
 	} else if !bytes.Equal(data, syncFile.Contents()) {
 		t.Errorf("Invalid contents")
 	}
 	// --------
-	if err := ioutil.WriteFile(filename, []byte("いあいあめんだこちゃんふたぐん"), os.ModePerm); err != nil {
+	if err := os.WriteFile(filename, []byte("いあいあめんだこちゃんふたぐん"), os.ModePerm); err != nil {
 		t.Errorf("Expected nil, got %v", err)
 	}
 	time.Sleep(time.Second)
