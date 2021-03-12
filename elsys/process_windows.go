@@ -4,6 +4,7 @@ package elsys
 
 import (
 	"golang.org/x/sys/windows"
+	"syscall"
 )
 
 const (
